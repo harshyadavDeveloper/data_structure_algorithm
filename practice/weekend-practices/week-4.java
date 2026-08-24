@@ -1,8 +1,12 @@
+import java.util.*;
+
 class Main {
     public static void main(String[] args) {
         // System.out.println("Factorial is: " + factorial(7));
         // System.out.println(reverseString("word"));
-        countDown(5);
+        // countDown(5);
+        // stacksNqueues();
+        System.out.println("Total Sum is: " + printSum(0));
 
     }
 
@@ -38,5 +42,39 @@ class Main {
         }
         System.out.println(n);
         countDown(n - 1);
+    }
+
+    /// task 4: Implement a stack (array-based or Stack<Integer>) and use it to
+    /// reverse the order of a queue's elements: push everything from a queue into a
+    /// stack, then pop everything back into a new queue.
+    public static void stacksNqueues() {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(10);
+        queue.add(20);
+        queue.add(30);
+        queue.add(40);
+
+        Stack<Integer> stack = new Stack<>();
+        while (!queue.isEmpty()) {
+            stack.add(queue.poll());
+        }
+        Queue<Integer> reversedQueue = new LinkedList<>();
+        while (!stack.isEmpty()) {
+            reversedQueue.add(stack.pop());
+
+        }
+        for (int num : reversedQueue) {
+            System.out.println(num);
+        }
+    }
+
+    /// task 5: Recursively compute the sum of an array {6, 2, 9, 4, 1} (same
+    /// pattern as your Week 4 array-sum task).
+    public static int printSum(int index) {
+        int[] arr = { 6, 2, 9, 4, 1 };
+        if (index == arr.length) {
+            return 0;
+        }
+        return arr[index] + printSum(index + 1);
     }
 }
