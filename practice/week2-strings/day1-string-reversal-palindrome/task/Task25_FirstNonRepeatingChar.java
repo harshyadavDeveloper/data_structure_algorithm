@@ -30,21 +30,21 @@
 // }
 
 class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         String word = "swiss";
         int[] freq = new int[26];
 
-        for(int i=0;i<word.length(); i++){
+        for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
-            int index = c-'a';
-            freq[index] +=1;
-            
+            int index = c - 'a';
+            freq[index] += 1;
+
         }
 
-        for(int i=0;i<word.length(); i++){
-            char c= word.charAt(i);
-            int index = c-'a';
-            if(freq[index] == 1){
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            int index = c - 'a';
+            if (freq[index] == 1) {
                 System.out.println(c);
                 break;
             }
