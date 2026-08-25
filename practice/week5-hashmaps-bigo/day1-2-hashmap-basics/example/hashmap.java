@@ -29,11 +29,12 @@ class Main {
 
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
-            if (freq.containsKey(c)) {
-                freq.put(c, freq.get(c) + 1);
-            } else {
-                freq.put(c, 1);
-            }
+            // if (freq.containsKey(c)) {
+            // freq.put(c, freq.get(c) + 1);
+            // } else {
+            // freq.put(c, 1);
+            // }
+            freq.put(c, freq.getOrDefault(c, 0) + 1); // cleaner and shorter method to do the same
         }
         System.out.println(freq);
     }
