@@ -18,5 +18,6 @@ class Main {
         }
         return n * factorial(n - 1);
     }
-    // here also the TC is O(n) because the recursive call gets call n times apart from the constant work like call cout if condition
+    // here also the TC is O(n) because the recursive call gets call n times apart
+    // from the constant work like call cout if condition
 }
