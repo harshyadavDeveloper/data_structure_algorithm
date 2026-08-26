@@ -13,15 +13,15 @@ class Main {
             for (int j = i + 1; j < n; j++) {
                 if (arr[j] < arr[swapIndex]) {
                     swapIndex = j;
-                    
+
                 }
 
             }
-            if(swapIndex != i){
+            if (swapIndex != i) {
                 int temp = arr[i];
-            arr[i] = arr[swapIndex];
-            arr[swapIndex] = temp;
-            count++;
+                arr[i] = arr[swapIndex];
+                arr[swapIndex] = temp;
+                count++;
             }
             // in this the count comes as 5 and i think we should increment the count where
             // the swap happens and if we increment count inside the inner loop then the

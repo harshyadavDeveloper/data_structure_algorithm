@@ -12,8 +12,8 @@ class Main {
             rotated[newIndex] = arr[i];
         }
 
-        for(int num:rotated){
-            System.out.print(num+" ");
+        for (int num : rotated) {
+            System.out.print(num + " ");
         }
     }
 }

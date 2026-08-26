@@ -5,7 +5,8 @@
 
 class Main {
     public static void main(String[] args) {
-        int[] arr = { 9, 3, 7, 1, 6, 2 }; // {1,2,3,4,5,6} for a sorted arr like shwon i think no shift will because the condition inside the while loop(2nd condition) will never hit
+        int[] arr = { 9, 3, 7, 1, 6, 2 }; // {1,2,3,4,5,6} for a sorted arr like shwon i think no shift will because the
+                                          // condition inside the while loop(2nd condition) will never hit
         int n = arr.length;
         int count = 0;
         for (int i = 1; i < n; i++) {
