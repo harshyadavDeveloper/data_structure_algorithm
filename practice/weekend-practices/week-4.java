@@ -14,7 +14,19 @@ class Main {
         // printLength();
         // System.out.println("IS PALINDROME: " + isPalindrome(word, 0, word.length() -
         // 1));
-        System.out.println("IS PALINDROME: " + isPalindrome2(word));
+        // System.out.println("IS PALINDROME: " + isPalindrome2(word));
+        // Node first = new Node(10);
+        // Node second = new Node(20);
+        // Node third = new Node(30);
+        // Node fourth = new Node(40);
+
+        // first.next = second;
+        // second.next = third;
+        // third.next = fourth;
+
+        // Node curr = first;
+        // printRecrusive(curr);
+        printMiddleNode();
 
     }
 
@@ -160,6 +172,49 @@ class Main {
             return false;
         }
         return isPalindrome2(word.substring(first + 1, last));
+    }
+
+    /// task 9: Build a linked list, then write a recursive function to print it in
+    /// reverse order (hint: the recursive call should happen before the print —
+    /// think about what that does to the order, same "wait, then unwind" behavior
+    /// from factorial).
+    public static void printRecrusive(Node current) {
+        if (current.next == null) {
+            System.out.println(current.data);
+            return;
+        }
+        printRecrusive(current.next);
+        System.out.println(current.data);
+    }
+
+    /// task 10: Given a linked list 1 → 2 → 3 → 4 → 5, write a function to find and
+    /// return the value of the middle node (think about two pointers moving at
+    /// different speeds — one step at a time, one two steps at a time — a genuinely
+    /// new trick worth deriving: when the fast one reaches the end, where's the
+    /// slow one?).
+    public static void printMiddleNode() {
+        Node first = new Node(1);
+        Node second = new Node(2);
+        Node third = new Node(3);
+        Node fourth = new Node(4);
+        Node fifth = new Node(5);
+
+        first.next = second;
+        second.next = third;
+        third.next = fourth;
+        fourth.next = fifth;
+
+        Node slow = first;
+        Node fast = first;
+
+        while (fast !=null && fast.next != null && fast.next.next !=null) {
+
+            
+            slow = slow.next;
+            fast = fast.next.next;
+            // System.out.println(slow.data + " " + fast.data);
+        }
+        System.out.println(slow.data);
     }
 }
 
