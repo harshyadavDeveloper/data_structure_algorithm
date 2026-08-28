@@ -12,7 +12,8 @@ class Main {
         // System.out.println(isPrime(47));
         // isPrimeNumber(50);
         // printEvenIndexes();
-        checkRotation();
+        // checkRotation();
+        moveZeros();
 
     }
 
@@ -45,7 +46,8 @@ class Main {
 
     }
 
-    // task 3. Check if a number n is a palindrome (e.g., 12321 is, 1234 isn't) — without
+    // task 3. Check if a number n is a palindrome (e.g., 12321 is, 1234 isn't) —
+    // without
     // converting it to a string, using only
     // arithmetic (% and /).
     public static void checkNumberPalindrome() {
@@ -66,7 +68,8 @@ class Main {
         }
     }
 
-    // task 4. Given {4, 2, 9, 2, 5, 9, 9}, find which number appears the most times (the
+    // task 4. Given {4, 2, 9, 2, 5, 9, 9}, find which number appears the most times
+    // (the
     // mode).
     public static void checkMode() {
         // for this 2 approaches can be used first is the nested loop and then a better
@@ -109,7 +112,8 @@ class Main {
 
     }
 
-    // task 5. Reverse only the vowels in a string — e.g., "hello" → "holle" (h-e-l-l-o →
+    // task 5. Reverse only the vowels in a string — e.g., "hello" → "holle"
+    // (h-e-l-l-o →
     // h-o-l-l-e).
 
     public static boolean isVowel(char c) {
@@ -141,7 +145,8 @@ class Main {
         System.out.println(newWord);
     }
 
-    // task 6. Given a string, check if it contains only digits (no loops using built-in
+    // task 6. Given a string, check if it contains only digits (no loops using
+    // built-in
     // isDigit — use character range comparison
     // '0' to '9').
 
@@ -180,7 +185,8 @@ class Main {
         }
     }
 
-    // task 8. Given {1, 2, 3, 4, 5, 6, 7, 8, 9}, print elements at even indexes only.
+    // task 8. Given {1, 2, 3, 4, 5, 6, 7, 8, 9}, print elements at even indexes
+    // only.
     public static void printEvenIndexes() {
         int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
         for (int i = 0; i < arr.length; i += 2) {
@@ -188,7 +194,8 @@ class Main {
         }
     }
 
-    // task 9. Given two strings, check if one is a rotation of the other (e.g., "abcde"
+    // task 9. Given two strings, check if one is a rotation of the other (e.g.,
+    // "abcde"
     // and "cdeab" — true).
     public static void checkRotation() {
         String word1 = "abcde";
@@ -200,6 +207,25 @@ class Main {
         } else {
 
             System.out.println("It is not a rotation");
+        }
+    }
+
+    public static void moveZeros() {
+        int[] arr = { 0, 1, 0, 3, 12 };
+        int interPos = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != 0) {
+                arr[interPos] = arr[i];
+                interPos++;
+            }
+        }
+
+        while (interPos < arr.length) {
+            arr[interPos] = 0;
+            interPos++;
+        }
+        for (int num : arr) {
+            System.out.print(num + " ");
         }
     }
 
