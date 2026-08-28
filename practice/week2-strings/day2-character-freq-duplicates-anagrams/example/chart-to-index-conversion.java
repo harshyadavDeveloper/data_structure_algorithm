@@ -58,7 +58,7 @@ class Main {
         // check anagram
         String s1 = "listen";
         String s2 = "silent";
-        if(s1.length() != s2.length()){
+        if (s1.length() != s2.length()) {
             System.out.println("Not Anagram");
             return;
 
@@ -67,22 +67,22 @@ class Main {
         int[] freq1 = new int[26];
         int[] freq2 = new int[26];
 
-        for(int i=0; i<s1.length();i++){
+        for (int i = 0; i < s1.length(); i++) {
             char c = s1.charAt(i);
-            int index = c-'a';
+            int index = c - 'a';
             freq1[index]++;
 
         }
 
-        for(int i=0;i<s2.length();i++){
+        for (int i = 0; i < s2.length(); i++) {
             char c = s2.charAt(i);
-            int index = c-'a';
+            int index = c - 'a';
             freq2[index]++;
 
         }
 
-        for(int i=0;i<26;i++){
-            if(freq1[i] != freq2[i]){
+        for (int i = 0; i < 26; i++) {
+            if (freq1[i] != freq2[i]) {
                 System.out.print("Not Anagram");
                 return;
             }

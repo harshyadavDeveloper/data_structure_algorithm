@@ -16,7 +16,7 @@ class Main {
 
     }
 
-    // 1. Print all numbers from 1 to 100 that are divisible by both 3 and 7.
+    // task 1. Print all numbers from 1 to 100 that are divisible by both 3 and 7.
     public static void printFactors() {
         for (int i = 1; i <= 100; i++) {
             if (i % 3 == 0 && i % 7 == 0) {
@@ -30,7 +30,7 @@ class Main {
         }
     }
 
-    // 2. Given {3, 9, 1, 7, 5, 2}, find the sum and the average in one pass.
+    // task 2. Given {3, 9, 1, 7, 5, 2}, find the sum and the average in one pass.
     public static void findAverage() {
         int[] arr = { 3, 9, 1, 7, 5, 2 };
         int sum = 0;
@@ -45,7 +45,7 @@ class Main {
 
     }
 
-    // 3. Check if a number n is a palindrome (e.g., 12321 is, 1234 isn't) — without
+    // task 3. Check if a number n is a palindrome (e.g., 12321 is, 1234 isn't) — without
     // converting it to a string, using only
     // arithmetic (% and /).
     public static void checkNumberPalindrome() {
@@ -66,7 +66,7 @@ class Main {
         }
     }
 
-    // 4. Given {4, 2, 9, 2, 5, 9, 9}, find which number appears the most times (the
+    // task 4. Given {4, 2, 9, 2, 5, 9, 9}, find which number appears the most times (the
     // mode).
     public static void checkMode() {
         // for this 2 approaches can be used first is the nested loop and then a better
@@ -109,7 +109,7 @@ class Main {
 
     }
 
-    // 5. Reverse only the vowels in a string — e.g., "hello" → "holle" (h-e-l-l-o →
+    // task 5. Reverse only the vowels in a string — e.g., "hello" → "holle" (h-e-l-l-o →
     // h-o-l-l-e).
 
     public static boolean isVowel(char c) {
@@ -141,7 +141,7 @@ class Main {
         System.out.println(newWord);
     }
 
-    // 6. Given a string, check if it contains only digits (no loops using built-in
+    // task 6. Given a string, check if it contains only digits (no loops using built-in
     // isDigit — use character range comparison
     // '0' to '9').
 
@@ -156,7 +156,7 @@ class Main {
         return false;
     }
 
-    // 7. Print all prime numbers between 1 and 50 (reuse or rebuild your
+    // task 7. Print all prime numbers between 1 and 50 (reuse or rebuild your
     // prime-check logic).
     public static boolean isPrime(int n) {
         if (n == 1) {
@@ -180,7 +180,7 @@ class Main {
         }
     }
 
-    // 8. Given {1, 2, 3, 4, 5, 6, 7, 8, 9}, print elements at even indexes only.
+    // task 8. Given {1, 2, 3, 4, 5, 6, 7, 8, 9}, print elements at even indexes only.
     public static void printEvenIndexes() {
         int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
         for (int i = 0; i < arr.length; i += 2) {
@@ -188,7 +188,7 @@ class Main {
         }
     }
 
-    // 9. Given two strings, check if one is a rotation of the other (e.g., "abcde"
+    // task 9. Given two strings, check if one is a rotation of the other (e.g., "abcde"
     // and "cdeab" — true).
     public static void checkRotation() {
         String word1 = "abcde";
