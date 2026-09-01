@@ -42,10 +42,9 @@ class Rectangle extends Shape {
     }
 }
 
+class Main {
 
-class Main{
-
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Shape s = new Circle(5);
         s.area();
 
