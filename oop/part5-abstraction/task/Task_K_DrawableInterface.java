@@ -10,11 +10,10 @@ class Main {
         c.describe();
         c.draw();
 
-
     }
 }
 
-interface Drawable{
+interface Drawable {
     abstract void draw();
 
 }
