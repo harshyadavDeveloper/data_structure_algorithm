@@ -9,12 +9,10 @@ class Main {
 
         inOrder(root);
 
-        
-
     }
 
-    public static void inOrder(TreeNode node){
-        if(node == null){
+    public static void inOrder(TreeNode node) {
+        if (node == null) {
             return;
         }
 

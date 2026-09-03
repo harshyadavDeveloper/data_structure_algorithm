@@ -9,6 +9,10 @@ class Shape {
     public void area() {
         System.out.println("Shape is not defined");
     }
+
+    public void newArea() {
+        System.out.println("Only in shape");
+    }
 }
 
 class Circle extends Shape {
@@ -43,11 +47,21 @@ class Rectangle extends Shape {
 }
 
 class Main {
-
     public static void main(String[] args) {
-        Shape s = new Circle(5);
-        s.area();
+        Shape circ = new Circle(4);
+        Shape rect = new Rectangle(3, 7);
+        Shape newShape = new Shape();
+
+        // circ.area();
+        // rect.area();
+        // newShape.area();
+
+        Shape[] arr = {
+                circ, rect, newShape
+        };
+        for(Shape shape: arr){
+            shape.newArea();
+        }
 
     }
-
 }
