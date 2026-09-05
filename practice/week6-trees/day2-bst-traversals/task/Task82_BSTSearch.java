@@ -9,7 +9,7 @@ class Main {
             root = insert(root, value);
         }
         // inOder(root);
-        System.out.println("Searching for element: "+ search(root, 100));
+        System.out.println("Searching for element: " + search(root, 100));
 
     }
 

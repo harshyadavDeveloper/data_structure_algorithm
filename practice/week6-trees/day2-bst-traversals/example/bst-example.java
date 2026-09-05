@@ -39,7 +39,7 @@ class Main {
         }
     }
 
-    public static void printInOrder(TreeNode node) {
+    public static void printInOrder(TreeNode node) { // print in order left < node < right
         if (node == null) {
             return;
         }
@@ -47,6 +47,26 @@ class Main {
         printInOrder(node.left);
         System.out.print(node.data + " ");
         printInOrder(node.right);
+
+    }
+
+    public static void printPreOrder(TreeNode node) { // print in preorder means node, left, right
+        if (node == null) {
+            return;
+        }
+        System.out.print(node.data + " ");
+        printPreOrder(node.left);
+        printPreOrder(node.right);
+    }
+
+    public static void printPostOrder(TreeNode node) { // print in postorder means left, right, node
+        if (node == null) {
+            return;
+        }
+
+        printPostOrder(node.left);
+        printPostOrder(node.right);
+        System.out.print(node.data + " ");
 
     }
 
