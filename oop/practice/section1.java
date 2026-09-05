@@ -11,8 +11,13 @@ class Main {
         // ba.withdraw(90);
         // ba.withdraw(0);
 
-        Person s = new Student("Harsh", 24, 36);
-        s.displayInfo();
+        // Person s = new Student("Harsh", 24, 36);
+        // s.displayInfo();
+
+        Payment cc = new CreditCardPayment(2000);
+        cc.pay(300);
+        Payment upi = new UpiPayment(500);
+        upi.pay(600);
     }
 
 }
@@ -80,4 +85,79 @@ class Student extends Person {
         super.displayInfo();
         System.out.println("roll no of this student is " + rollNo);
     }
+}
+
+// task 3: Abstract class Payment with abstract pay(
+// double amt);
+// CreditCardPayment and UpiPayment both implement it differently.
+abstract class Payment {
+
+    abstract void pay(double amt);
+
+}
+
+class CreditCardPayment extends Payment {
+    private double balance;
+
+    CreditCardPayment(double balance) {
+        this.balance = balance;
+    }
+
+    @Override
+    void pay(double amt) {
+        if (amt > balance) {
+            System.out.println("Limit exceeded of your credit card");
+        } else if (amt == 0) {
+            System.out.println("Cannot make this payment");
+        } else {
+            balance -= amt;
+            System.out.println("Current credit card limit after payment: " + balance);
+        }
+    }
+
+}
+
+class UpiPayment extends Payment {
+    private double balance;
+
+    UpiPayment(double balance) {
+        this.balance = balance;
+    }
+
+    @Override
+    void pay(double amt) {
+        if (amt > balance) {
+            System.out.println("Not enough amount in your account");
+        } else if (amt == 0) {
+            System.out.println("Cannot make this payment");
+        } else {
+            balance -= amt;
+            System.out.println("Upi balance after the payment is " + balance);
+        }
+
+    }
+}
+
+// task 4: Interface Movable (move()) implemented by unrelated classes Car and
+// Robot — prove interfaces cut across unrelated hierarchies.
+interface Movable {
+    abstract void move();
+}
+
+class Car implements Movable {
+
+    @Override
+    public void move() {
+        System.out.println("Car moves in 2 directions");
+    }
+
+}
+
+class Robot implements Movable {
+
+    @Override
+    public void move() {
+        System.out.println("Robot moves in 4 directions");
+    }
+
 }
