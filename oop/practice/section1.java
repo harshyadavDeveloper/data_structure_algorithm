@@ -14,10 +14,23 @@ class Main {
         // Person s = new Student("Harsh", 24, 36);
         // s.displayInfo();
 
-        Payment cc = new CreditCardPayment(2000);
-        cc.pay(300);
-        Payment upi = new UpiPayment(500);
-        upi.pay(600);
+        // Payment cc = new CreditCardPayment(2000);
+        // cc.pay(300);
+        // Payment upi = new UpiPayment(500);
+        // upi.pay(600);
+
+        // Animal fis = new Fish();
+        // Animal bir = new Bird();
+
+        // // Animal[] list = {fis, bir};
+        // // for(Animal curr: list){
+        // // curr.move();
+        // // }
+        // Animal[] list = { new Fish(), new Bird() };
+        // for (Animal curr : list) {
+        // curr.move();
+        // }
+        Vehicle f1 = new SportsCar("Ferrari", 2, 200);
     }
 
 }
@@ -144,20 +157,77 @@ interface Movable {
     abstract void move();
 }
 
-class Car implements Movable {
+// class Car implements Movable {
 
-    @Override
-    public void move() {
-        System.out.println("Car moves in 2 directions");
-    }
+// @Override
+// public void move() {
+// System.out.println("Car moves in 2 directions");
+// }
 
-}
+// }
 
 class Robot implements Movable {
 
     @Override
     public void move() {
         System.out.println("Robot moves in 4 directions");
+    }
+
+}
+
+// task 5: Animal → Bird, Fish both override a move() method differently; loop
+// over an Animal[] and call .move() on each.
+
+abstract class Animal {
+    abstract void move();
+}
+
+class Bird extends Animal {
+
+    @Override
+    void move() {
+        System.out.println("Bird flies in the air");
+    }
+
+}
+
+class Fish extends Animal {
+
+    @Override
+    void move() {
+        System.out.println("Fish swims in the water");
+    }
+
+}
+
+// task 6: Constructor chaining: Vehicle(brand) → Car(brand, doors) →
+// SportsCar(brand, doors, topSpeed), three levels deep, each calling
+// super(...).
+abstract class Vehicle {
+    private String brand;
+
+    Vehicle(String brand) {
+        this.brand = brand;
+    }
+}
+
+abstract class Car extends Vehicle {
+    private int doors;
+
+    Car(String brand, int doors) {
+        super(brand);
+        this.doors = doors;
+
+    }
+}
+
+class SportsCar extends Car {
+    private int topSpeed;
+
+    SportsCar(String brand, int doors, int topSpeed) {
+        super(brand, doors);
+        this.topSpeed = topSpeed;
+        System.out.println(brand + " " + doors + " " + topSpeed);
     }
 
 }
