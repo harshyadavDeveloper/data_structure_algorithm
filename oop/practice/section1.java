@@ -30,7 +30,12 @@ class Main {
         // for (Animal curr : list) {
         // curr.move();
         // }
-        Vehicle f1 = new SportsCar("Ferrari", 2, 200);
+
+        Shape[] shapes = { new Circle(4.5), new Rectangle(4.8, 9.3) };
+
+        for (Shape curr : shapes) {
+            curr.describe();
+        }
     }
 
 }
@@ -230,4 +235,87 @@ class SportsCar extends Car {
         System.out.println(brand + " " + doors + " " + topSpeed);
     }
 
+}
+
+// task 7: Create an abstract Shape class with abstract area() and
+// getPerimeter() methods, implemented differently by Circle and Rectangle. In
+// main(), use a Shape[] and call both methods polymorphically.
+abstract class Shape {
+
+    abstract double area();
+
+    abstract double permimeter();
+
+    public void describe() {
+        System.out.println("Area of the shape is: " + area());
+        System.out.println("Perimeter of the shape is: " + permimeter());
+    }
+}
+
+class Circle extends Shape implements Drawable, Resizable {
+    double radius;
+
+    Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    double area() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    double permimeter() {
+        return 2 * Math.PI * radius;
+    }
+
+    @Override
+    public void resize() {
+        System.out.println("here we resize the circle");
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("here we draw the circle");
+    }
+}
+
+class Rectangle extends Shape implements Drawable, Resizable {
+    double height;
+    double width;
+
+    Rectangle(double height, double width) {
+        this.height = height;
+        this.width = width;
+    }
+
+    @Override
+    double area() {
+        return height * width;
+    }
+
+    @Override
+    double permimeter() {
+        return 2 * (height + width);
+    }
+
+    @Override
+    public void resize() {
+        System.out.println("Here we can resize the rectangle");
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("here we draw the rectangle");
+    }
+}
+
+// task 8: A class implementing two interfaces (Drawable, Resizable) — prove
+// multiple interface implementation compiles fine.
+interface Drawable {
+    public void draw();
+}
+
+interface Resizable {
+    public void resize();
 }
