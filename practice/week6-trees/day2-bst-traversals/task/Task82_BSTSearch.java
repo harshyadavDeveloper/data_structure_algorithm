@@ -1,6 +1,4 @@
-// Task 81: Implement insert() as derived above. Insert 50, 30, 70, 20, 40, 60,
-// 80 one at a time (starting from null root), then run inOrder to confirm you
-// get them back sorted.
+// Task 82: Implement search(). Test on your Task 81 tree: search for 40 (should be found) and 100 (should not).
 
 class Main {
     public static void main(String[] args) {
@@ -10,7 +8,8 @@ class Main {
         for (int value : arr) {
             root = insert(root, value);
         }
-        inOder(root);
+        // inOder(root);
+        System.out.println("Searching for element: "+ search(root, 100));
 
     }
 
@@ -36,7 +35,21 @@ class Main {
         return node;
 
     }
-    
+
+    public static boolean search(TreeNode node, int target) {
+        if (node == null) {
+            return false;
+        }
+
+        if (node.data == target) {
+            return true;
+        } else if (target < node.data) {
+            return search(node.left, target);
+        } else {
+            return search(node.right, target);
+        }
+    }
+
 }
 
 class TreeNode {
