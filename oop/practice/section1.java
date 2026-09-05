@@ -31,11 +31,30 @@ class Main {
         // curr.move();
         // }
 
-        Shape[] shapes = { new Circle(4.5), new Rectangle(4.8, 9.3) };
+        // Shape[] shapes = { new Circle(4.5), new Rectangle(4.8, 9.3) };
+        // for (Shape curr : shapes) {
+        // curr.describe();
+        // }
 
-        for (Shape curr : shapes) {
-            curr.describe();
-        }
+        // Employee e = new Employee("Harsh", "BH-016");
+        // // e.id = "BH-018"; // here no can stop me from changing the employee from a
+        // // different class(even
+        // // tho that id is not the member of this class). so avoid this make the
+        // private
+        // // as the word itself suggest that variable be private to that class and we
+        // cant
+        // // read it or write it directly we have to use the provided getter/setters
+        // System.out.println("Employee Data: " + e.getName() + " " + e.getId()); //
+        // name and id can only be accessed by
+        // // their getters
+        // e.setName("John"); // it can only be changed by the setters
+        // e.setId("BH-001");
+        // System.out.println("Employee Data after setters: " + e.getName() + " " +
+        // e.getId());
+
+        Employee e = new Manager("Harsh", 300000, 10000);
+        e.paycheck();
+
     }
 
 }
@@ -318,4 +337,79 @@ interface Drawable {
 
 interface Resizable {
     public void resize();
+}
+
+// task 9: Break encapsulation on purpose: make a field public, show how outside
+// code can set it to an invalid value directly — then fix it back to private +
+// validated setter, and explain in a comment what specifically became
+// possible/impossible.
+// class Employee {
+// private String name;
+// private String id;
+
+// Employee(String name, String id) {
+// this.name = name;
+// this.id = id;
+// }
+
+// public String getName() {
+// return name;
+// }
+
+// public String getId() {
+// return id;
+// }
+
+// public void setName(String name) {
+// this.name = name;
+// };
+
+// public void setId(String id) {
+// if (id.isEmpty()) {
+// System.out.println("Please provide a proper id");
+// } else if (id.length() < 3) {
+// System.out.println("ID should be more than 3 characters");
+
+// } else {
+// this.id = id;
+// }
+// }
+// }
+
+// task 10: Employee → Manager where Manager overrides paycheck() but internally
+// calls super.paycheck() first, then adds a bonus on top (using parent behavior
+// and extending it, not replacing it).
+class Employee {
+    private String name;
+    private int salary;
+
+    Employee(String name, int salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void paycheck() {
+
+        System.out.println("this employee gets " + salary);
+    }
+}
+
+class Manager extends Employee {
+    int bonus;
+
+    Manager(String name, int salary, int bonus) {
+        super(name, salary);
+        this.bonus = bonus;
+    }
+
+    @Override
+    public void paycheck() {
+        super.paycheck();
+        System.out.println("Manager gets salaries + bonus " + (getSalary() + bonus));
+
+    }
 }
