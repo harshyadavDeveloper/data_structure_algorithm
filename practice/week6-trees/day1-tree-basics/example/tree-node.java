@@ -8,6 +8,8 @@ class Main {
         root.right.right = new TreeNode(20);
 
         inOrder(root);
+        System.out.println("Minimun value node is: " + findMin(root));
+        System.out.println("Maximum value node is: " + findMax(root));
 
     }
 
@@ -17,8 +19,30 @@ class Main {
         }
 
         inOrder(node.left); // fully explore the left side first
-        System.out.println(node.data + " "); // then visit this node
+        System.out.print(node.data + " "); // then visit this node
         inOrder(node.right); // then fully explore everything on the right
+    }
+
+    public static int findMin(TreeNode node) {
+        if (node == null) {
+            return Integer.MAX_VALUE;
+        }
+
+        int leftMin = findMin(node.left);
+        int rightMin = findMin(node.right);
+
+        return Math.min(node.data, Math.min(leftMin, rightMin));
+    }
+
+    public static int findMax(TreeNode node) {
+        if (node == null) {
+            return Integer.MIN_VALUE;
+        }
+
+        int leftMax = findMax(node.left);
+        int rightMax = findMax(node.right);
+
+        return Math.max(node.data, Math.max(leftMax, rightMax));
     }
 }
 
