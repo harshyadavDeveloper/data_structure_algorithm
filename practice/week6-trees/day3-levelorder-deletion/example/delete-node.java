@@ -12,6 +12,13 @@ class Main {
 
     }
 
+    // 1. Target chhota hai → left jao.
+    // 2. Target bada hai → right jao.
+    // 3. Target mil gaya → children check karo.
+    // 4. 0/1 child → jo child hai, usko meri jagah return karo.
+    // 5. 2 children → right subtree ka minimum lao, value copy karo, original
+    // minimum ko delete karo.
+
     public static TreeNode deleteNode(TreeNode node, int target) {
         if (node == null) {
             return null;
