@@ -1,6 +1,6 @@
 // Task 18: Reverse the string "programming" using the char-array two-pointer approach.
 
-class Main {
+class Task18_ReverseCharArray {
     public static void main(String[] args) {
         String original = "programming";
         char[] array1 = original.toCharArray();

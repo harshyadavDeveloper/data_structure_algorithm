@@ -4,7 +4,7 @@
 
 // explain: the outer look shall be of row and inner if cols. 
 
-class Main {
+class Task33_RowColumnSums {
     public static void main(String[] args) {
         int[][] matrix = { { 1, 2, 3 },
                 { 4, 5, 6 },

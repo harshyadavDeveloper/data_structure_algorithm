@@ -4,7 +4,7 @@
 //  original order checking each character's count, since scanning the freq[26] array directly won't preserve the original
 //  left-to-right order of the string itself.
 
-// class Main {
+// class Task25_FirstNonRepeatingChar {
 //     public static void main(String[] args) {
 //         String word = "swiss";
 //         int[] freq = new int[26];
@@ -29,7 +29,7 @@
 //     }
 // }
 
-class Main {
+class Task25_FirstNonRepeatingChar {
     public static void main(String[] args) {
         String word = "swiss";
         int[] freq = new int[26];

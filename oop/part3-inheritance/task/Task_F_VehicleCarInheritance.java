@@ -39,7 +39,7 @@ class Car extends Vehicle {
     }
 }
 
-class Main {
+class Task_F_VehicleCarInheritance {
     public static void main(String[] args) {
         Car car = new Car("Toyota", 200, 4);
         car.honk();

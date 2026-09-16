@@ -2,7 +2,7 @@
 // x exceeds 1000. (You genuinely don't know upfront how many iterations this takes — that's the point, and exactly why while 
 // fits here better than for.)
 
-class Main {
+class Task7_MultiplyXby2 {
     public static void main(String[] args) {
         int x = 1;
         while (x <= 1000) {

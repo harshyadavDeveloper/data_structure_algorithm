@@ -4,7 +4,7 @@
 
 import java.util.HashMap;
 
-class Main {
+class Task69_HashMapAnagram {
     public static void main(String[] args) {
         String word1 = "listen";
         String word2 = "silenta";

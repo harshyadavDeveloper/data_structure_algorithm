@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-class Main {
+class Week12 {
     public static void main(String[] args) {
         // printFactors();
         // findAverage();

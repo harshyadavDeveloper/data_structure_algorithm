@@ -5,7 +5,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-class Main {
+class Task62_QueueUsingBuiltIn {
     public static void main(String[] args) {
         ticketSystem();
 

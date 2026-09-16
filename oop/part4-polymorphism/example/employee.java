@@ -33,7 +33,7 @@ class Salesperson extends Employee {
     }
 }
 
-class Main {
+class employee {
     public static void main(String[] args) {
         Employee e1 = new Employee("Harsh");
         Employee e2 = new Manager("John");

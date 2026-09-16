@@ -1,6 +1,6 @@
 package oop.practice;
 
-class Main {
+class section1 {
     public static void main(String[] args) {
         // BankAccount ba = new BankAccount(100);
         // ba.deposit(30);

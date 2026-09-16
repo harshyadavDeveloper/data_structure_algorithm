@@ -1,6 +1,6 @@
 // reverse a string using char[]
 
-// class Main{
+// class ExampleReverseAString{
 //     public static void main(String[] args){
 //         String original = "hello";
 //         char[] reverse = original.toCharArray();
@@ -20,7 +20,7 @@
 
 // approach 2 building a new string by walking backward
 
-class Main {
+class ExampleReverseAString {
     public static void main(String[] args) {
         String original = "Harsh";
         String reversed = "";

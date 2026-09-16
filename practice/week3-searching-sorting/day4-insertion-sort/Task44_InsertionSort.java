@@ -1,7 +1,7 @@
 // Task 44: Sort {9, 3, 7, 1, 6, 2} ascending using insertion sort, printing the array after each outer-loop 
 // iteration (each "card inserted"), same visualization style as before.
 
-class Main {
+class Task44_InsertionSort {
     public static void main(String[] args) {
         int[] arr = { 9, 3, 7, 1, 6, 2 };
         int n = arr.length;

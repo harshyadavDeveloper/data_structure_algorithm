@@ -1,7 +1,7 @@
 // Task E: Student class with private name and marks (0–100). Constructor clamps invalid marks to the nearest valid bound (not 
 // reject — e.g. -5 becomes 0, 150 becomes 100). Getters for both fields. A printReport() method.
 
-class Main {
+class Task_E_StudentClamping {
     public static void main(String[] args) {
         Student stud = new Student("Harsh", 150);
         System.out.println("Student Name: "+ stud.getName());

@@ -1,4 +1,4 @@
-class Main {
+class FibonacciNumber {
     public static void main(String[] args) {
         // int end = 10;
         // int first = 0;

@@ -2,7 +2,7 @@
 // using both linear and binary search on the same sorted 10-element array, and print both comparison counts side by side. Confirm
 // binary search takes meaningfully fewer steps.
 
-class Main {
+class Task37_StepComparison {
     public static void main(String[] args) {
         linearSearch();
         binarySearch();

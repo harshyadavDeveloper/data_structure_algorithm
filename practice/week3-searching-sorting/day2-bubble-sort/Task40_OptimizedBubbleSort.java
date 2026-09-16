@@ -6,7 +6,7 @@
 // is already sorted — no further passes can possibly help). Test this on the near-sorted array above and confirm it exits early 
 // rather than grinding through all remaining passes needlessly.
 
-class Main {
+class Task40_OptimizedBubbleSort {
     public static void main(String[] args) {
         int[] arr = { 1, 2, 3, 5, 4, 6 };
         int n = arr.length;

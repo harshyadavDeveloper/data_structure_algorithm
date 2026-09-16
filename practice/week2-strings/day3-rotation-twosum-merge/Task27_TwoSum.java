@@ -1,6 +1,6 @@
 // Given sorted array {1, 4, 6, 8, 12, 15}, find a pair that sums to 14.
 
-class Main {
+class Task27_TwoSum {
     public static void main(String[] args) {
         int[] arr = { 1, 4, 6, 8, 12, 15 };
         int target = 14;

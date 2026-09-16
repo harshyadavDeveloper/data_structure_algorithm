@@ -1,7 +1,7 @@
 // Task 67: Given a linked list 10 → 20 → 30 → 40, write a function that sums all the node values by traversing the list 
 // (reuse the accumulator pattern from Week 1 — same idea, just walking .next instead of incrementing an array index).
 
-class Main {
+class Task67_LinkedListSum {
     public static void main(String[] args) {
         Node first = new Node(10);
         Node second = new Node(20);

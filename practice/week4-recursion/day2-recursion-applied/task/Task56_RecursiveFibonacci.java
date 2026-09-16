@@ -1,7 +1,7 @@
 // Task 56: Implement recursive Fibonacci, print fibonacci(0) through fibonacci(10) in sequence (a loop calling the recursive 
 // function 11 times, printing each result — this outer loop is fine, it's just driving the recursive calls).
 
-class Main {
+class Task56_RecursiveFibonacci {
     public static void main(String[] args) {
         for (int i = 0; i <= 10; i++) {
             System.out.print(fibonacciRecursive(i) + ", ");

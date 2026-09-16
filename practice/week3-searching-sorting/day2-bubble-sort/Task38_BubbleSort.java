@@ -1,7 +1,7 @@
 // Task 38: Sort {9, 3, 7, 1, 6, 2} ascending using bubble sort, exactly as derived above. Print the array after each full pass
 // (not just the final result) so you can see the "settling" happen visually, matching the hand-trace style.
 
-class Main {
+class Task38_BubbleSort {
     public static void main(String[] args) {
         int[] arr = { 9, 3, 7, 1, 6, 2 };
         int n = arr.length;

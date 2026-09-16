@@ -1,7 +1,7 @@
 // Task 55: Implement recursive binary search exactly as derived above. Test on {2,5,8,12,16,23,38,45,56,72} searching for 45. 
 // Hand-trace the call chain (like the fibonacci(5) tree above, but simpler) before running.
 
-class Main {
+class Task55_RecursiveBinarySearch {
     public static void main(String[] args) {
         int[] arr = { 1, 5, 7, 9, 10, 33, 76, 89, 91 };
         int start = 0;

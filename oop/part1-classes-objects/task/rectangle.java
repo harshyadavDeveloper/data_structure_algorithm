@@ -7,7 +7,7 @@
 // lists, and Java picks the right one based on what you pass when you write new Rectangle(...)). Test both constructors — new 
 // Rectangle(4, 5) and new Rectangle() — and confirm the second one correctly defaults to a 1×1 rectangle.
 
-class Main{
+class rectangle{
     public static void main(String[] args){
         Rectangle rec1 = new Rectangle(6, 8);
         Rectangle rec2 = new Rectangle(4, 5);

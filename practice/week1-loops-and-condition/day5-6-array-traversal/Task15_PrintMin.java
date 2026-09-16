@@ -2,7 +2,7 @@
 // rather than some large number like 9999? (Think about what would happen if every number in the array happened to be larger 
 // than whatever guess you hardcoded.)
 
-class Main {
+class Task15_PrintMin {
     public static void main(String[] args) {
         int[] arr = { 4, 15, 7, 22, 9, 3 };
         int min = arr[0];

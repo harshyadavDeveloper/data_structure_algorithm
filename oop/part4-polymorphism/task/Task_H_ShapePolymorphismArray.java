@@ -40,7 +40,7 @@ class Rectangle extends Shape {
     }
 }
 
-class Main {
+class Task_H_ShapePolymorphismArray {
     public static void main(String[] args) {
         Shape circ = new Circle(4);
         Shape rect = new Rectangle(3, 7);

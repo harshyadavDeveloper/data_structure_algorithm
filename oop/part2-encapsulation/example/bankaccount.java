@@ -1,4 +1,4 @@
-class Main {
+class bankaccount {
     public static void main(String[] args) {
         BankAccount acc = new BankAccount(100);
         // acc.balance = -10000; // this will never work

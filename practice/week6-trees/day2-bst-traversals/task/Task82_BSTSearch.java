@@ -1,6 +1,6 @@
 // Task 82: Implement search(). Test on your Task 81 tree: search for 40 (should be found) and 100 (should not).
 
-class Main {
+class Task82_BSTSearch {
     public static void main(String[] args) {
         int[] arr = { 50, 30, 70, 20, 40, 60, 80 };
         TreeNode root = null;

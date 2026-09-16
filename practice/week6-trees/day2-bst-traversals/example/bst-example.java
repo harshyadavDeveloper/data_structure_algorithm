@@ -1,4 +1,4 @@
-class Main {
+class BstExample {
     public static void main(String[] args) {
         // 7,5,8,10,3,2,0
         int[] values = { 7, 5, 8, 10, 3, 2, 0, 13, 17 };

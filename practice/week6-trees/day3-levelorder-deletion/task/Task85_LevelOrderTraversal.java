@@ -4,7 +4,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-class Main {
+class Task85_LevelOrderTraversal {
     public static void main(String[] args) {
         int[] values = { 50, 30, 70, 20, 40, 60, 80 };
         TreeNode root = null;

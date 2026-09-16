@@ -1,7 +1,7 @@
 // Task 86: On your Task 81 tree, delete 20 (a leaf). Run inOrder before and after to confirm 20 is gone 
 // and everything else remains correctly sorted.
 
-class Main {
+class Task86_DeleteLeaf {
     public static void main(String[] args) {
         int[] arr = { 50, 30, 70, 20, 40, 60, 80 };
         TreeNode root = null;

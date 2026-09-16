@@ -1,6 +1,6 @@
 // Task 52: Implement sumOfDigits(n) as derived above, test with n = 98765.
 
-class Main {
+class Task52_SumOfDigitsRecursive {
     public static void main(String[] main) {
         sumOfDigit(98765);
 

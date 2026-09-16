@@ -4,7 +4,7 @@
 
 import java.util.HashMap;
 
-class Main {
+class Task75_HashMapLookup {
     public static void main(String[] args) {
         HashMap<String, Integer> files = new HashMap<>();
         files.put("readme.txt", 12);

@@ -4,7 +4,7 @@
 
 import java.util.HashMap;
 
-class Main {
+class Task71_HashMapFirstUnique {
     public static void main(String[] args) {
         String word = "swiss";
         HashMap<Character, Integer> seen = new HashMap<>();

@@ -2,7 +2,7 @@
 // coding — think about which of your two conditions should be checked first and why (there's only one real branch here, but 
 // think about ordering anyway, it matters for Task 13).
 
-class Main {
+class Task12_BuzzWord {
     public static void main(String[] args) {
 
         for (int i = 0; i <= 50; i++) {

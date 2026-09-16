@@ -2,7 +2,7 @@
 
 import java.util.HashMap;
 
-class Main {
+class Task70_HashMapTwoSum {
     public static void main(String[] args) {
         int[] arr = { 3, 2, 4 };
         int target = 6;

@@ -1,7 +1,7 @@
 // Task 83: Implement both preOrder and postOrder, run both on your Task 81 tree, and manually verify the outputs against the 
 // tree's actual shape (draw it out or trace by hand first).
 
-class Main {
+class Task83_PreOrderPostOrder {
     public static void main(String[] args) {
         int[] arr = { 50, 30, 70, 20, 40, 60, 80 };
         TreeNode root = null;

@@ -4,7 +4,7 @@ package task;
 // abstract area(), add a concrete describe() method in Shape that prints using area() (like the worked example). Confirm in a 
 // comment that new Shape() now fails to compile if you try it.
 
-class Main {
+class Task_J_AbstractShapeClass {
     public static void main(String[] args) {
         // Shape newShape = new Shape(); // throws compile error of Cannot instantiate
         // the type Shape

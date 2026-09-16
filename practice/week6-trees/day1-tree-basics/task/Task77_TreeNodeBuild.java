@@ -18,7 +18,7 @@
 // a tree is 1 more than the taller of its two subtrees' heights — what Java tool do you already know for "which of two things 
 // is bigger" that could help here (hint: think back to Week 1's max-finding logic, or consider Math.max)?
 
-class Main {
+class Task77_TreeNodeBuild {
     public static void main(String[] args) {
         TreeNode root = new TreeNode(10);
         root.left = new TreeNode(5);

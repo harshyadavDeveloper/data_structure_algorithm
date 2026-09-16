@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class FindCombinations {
     public static void main(String[] args) {
         findCombinations2();
     }

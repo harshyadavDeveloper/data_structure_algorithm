@@ -3,7 +3,7 @@
 //  solve this by comparing the original string to its reversed version? Would that actually work correctly, and is it the most
 //  efficient approach, or can you check it more directly using the two-pointer idea without fully reversing first?
 
-// class Main {
+// class Task20_Palindrome {
 //     public static void main(String[] args) {
 //         isPalindrome("racecar");
 
@@ -37,7 +37,7 @@
 //     }
 // }
 
-class Main {
+class Task20_Palindrome {
     public static void main(String[] args) {
         String word = "hello";
         isPlaindrome(word);

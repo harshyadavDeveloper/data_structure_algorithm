@@ -3,7 +3,7 @@
 // mentally to how many swaps bubble sort would have needed on the same array (you don't need to actually re-run bubble sort
 // — just reason about which one likely does fewer swaps, based on what you saw in the hand-trace above).
 
-class Main {
+class Task42_SelectionSortSwapCount {
     public static void main(String[] args) {
         int[] arr = { 9, 3, 7, 1, 6, 2 };
         int n = arr.length;

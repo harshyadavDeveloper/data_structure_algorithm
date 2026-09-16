@@ -1,7 +1,7 @@
 // Task 63: Build the Node class as derived above. Manually create and link four nodes (10 → 20 → 30 → 40), then 
 // traverse and print the full chain using the while loop pattern shown.
 
-class Main {
+class Task63_LinkedListBuildTraverse {
     public static void main(String[] args) {
         Node first = new Node(10);
         Node second = new Node(20);

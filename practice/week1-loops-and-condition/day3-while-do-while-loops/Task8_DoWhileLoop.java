@@ -2,7 +2,7 @@
 // the condition x < 10. Predict, in your notebook, before running it: how many times will this print, and why? Then run it and 
 // confirm.
 
-class Main {
+class Task8_DoWhileLoop {
     public static void main(String[] args) {
         int x = 50;
         do {

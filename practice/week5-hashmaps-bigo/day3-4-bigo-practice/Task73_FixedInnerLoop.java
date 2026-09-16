@@ -2,7 +2,7 @@
 // outer runs once per array element, inner always runs exactly 5 times, never depending on n). Example partial output for 
 // element 5: 5 5 5 5 5. (Maps to Q2 — pay attention to whether the inner loop's bound is tied to n or fixed.)
 
-class Main {
+class Task73_FixedInnerLoop {
     public static void main(String[] args) {
         int[] arr = { 5, 10, 15, 20, 25 };
         for (int i = 0; i < arr.length; i++) {

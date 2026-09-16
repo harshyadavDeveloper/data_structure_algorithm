@@ -1,4 +1,4 @@
-class Main {
+class recursion {
     public static void main(String[] args) {
         // factorial(7);
         sumOfDigit(123445);

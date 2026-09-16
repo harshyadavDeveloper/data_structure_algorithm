@@ -1,7 +1,7 @@
 // Task 39: Sort the same array in descending order instead. Think about which single comparison operator needs to flip, and why 
 // — everything else about the structure should stay identical.
 
-class Main {
+class Task39_BubbleSortDescending {
     public static void main(String[] args) {
         int[] arr = { 9, 3, 7, 1, 6, 2 };
         int n = arr.length;

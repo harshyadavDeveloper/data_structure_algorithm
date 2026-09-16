@@ -1,6 +1,6 @@
 // Task 4: Print the same array from last to first. from task 3
 
-class Main {
+class Task4_PrintListElementReverse {
     public static void main(String[] args) {
         int[] arr = { 10, 20, 30, 40, 50 };
 

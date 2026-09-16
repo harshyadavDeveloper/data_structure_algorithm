@@ -5,7 +5,7 @@
 
 import java.util.HashMap;
 
-class Main {
+class Task76_DuplicateFileFinder {
     public static void main(String[] args) {
         HashMap<String, Integer> seen = new HashMap<>();
         String[] filenames = { "photo.jpg", "notes.txt", "photo.jpg", "report.pdf", "notes.txt", "notes.txt" };

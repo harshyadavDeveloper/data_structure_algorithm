@@ -44,7 +44,7 @@ class Rectangle extends Shape {
     }
 }
 
-class Main {
+class shape {
     public static void main(String[] args) {
         // Shape newShape = new Shape(); throws complie error Cannot instantiate the
         // type Shape

@@ -2,7 +2,7 @@
 //  19 using linear search, and count how many comparisons it took (add a counter that increments each time you check
 //  arr[i] == target).
 
-class Main {
+class Task34_LinearSearchCount {
     public static void main(String[] args) {
         int[] arr = { 4, 12, 7, 19, 3, 25, 8, 16, 1, 30 };
         int target = 19;

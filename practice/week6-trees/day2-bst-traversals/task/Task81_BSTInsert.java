@@ -2,7 +2,7 @@
 // 80 one at a time (starting from null root), then run inOrder to confirm you
 // get them back sorted.
 
-class Main {
+class Task81_BSTInsert {
     public static void main(String[] args) {
         int[] arr = { 50, 30, 70, 20, 40, 60, 80 };
         TreeNode root = null;

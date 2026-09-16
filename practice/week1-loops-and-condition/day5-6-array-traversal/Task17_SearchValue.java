@@ -2,7 +2,7 @@
 // above. Trace it fully by hand first — predict what gets printed — before running it, and confirm your -1/"not found" logic 
 // actually works correctly for a genuine miss, not just a hit.
 
-class Main {
+class Task17_SearchValue {
     public static void main(String[] args) {
         int[] arr = { 5, 3, 8, 1, 9, 100 };
         int target = 100;

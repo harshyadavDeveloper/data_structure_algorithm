@@ -1,6 +1,6 @@
 // Count the number of vowels (a, e, i, o, u — lowercase only, for now) in the string "programming is fun"
 
-class Main {
+class Task21_CountVowels {
     public static void main(String[] args) {
         String check = "programming is fun";
         char[] arr = check.toCharArray();
@@ -17,7 +17,7 @@ class Main {
 
 /// another approach that i had thought about first before the above solution
 
-// class Main {
+// class Task21_CountVowels {
 // public static void main(String[] args) {
 // String check = "programming is fun";
 
@@ -44,7 +44,7 @@ class Main {
 // }
 
 // branch question to print the vowels too
-// class Main {
+// class Task21_CountVowels {
 // public static void main(String[] args) {
 // String check = "programming is fun";
 
@@ -63,7 +63,7 @@ class Main {
 // }
 
 // branch question print only unique vowels
-// class Main {
+// class Task21_CountVowels {
 // public static void main(String[] args) {
 // String check = "programming is fun";
 

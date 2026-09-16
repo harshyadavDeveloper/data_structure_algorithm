@@ -5,7 +5,7 @@
 // "previous" tracker, which is a genuinely new pattern — think about what variable you need to hold onto as you 
 // walk forward, so that when you find the target, you still have a handle on what came right before it).
 
-class Main {
+class Task66_DeleteNode {
     public static void main(String[] main) {
         Node first = new Node(10);
         Node second = new Node(20);

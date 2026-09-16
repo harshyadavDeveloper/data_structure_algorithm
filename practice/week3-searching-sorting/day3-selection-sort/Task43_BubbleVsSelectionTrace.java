@@ -3,7 +3,7 @@
 // side. Are the arrays identical after each corresponding pass, or do they diverge? What does that tell you about whether
 // "same final answer" means "same process" in sorting algorithms?
 
-class Main {
+class Task43_BubbleVsSelectionTrace {
     public static void main(String[] args) {
         bubbleSort();
     }

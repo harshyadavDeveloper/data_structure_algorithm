@@ -43,7 +43,7 @@ class Car extends Vehicle {
     }
 }
 
-class Main {
+class Task_G_PrivateFieldAccessTrap {
     public static void main(String[] args) {
         Car car = new Car("Toyota", 200, 4);
         car.honk();

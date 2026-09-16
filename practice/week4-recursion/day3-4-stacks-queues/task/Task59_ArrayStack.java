@@ -1,7 +1,7 @@
 /// Task 59: Build the array-based stack exactly as derived above (push, pop, peek functions). Test it: push 10, 20, 30, then pop 
 // twice, printing what comes off each time (should be 30, then 20, confirming LIFO order).
 
-class Main {
+class Task59_ArrayStack {
     public static void main(String[] args) {
         Stack.push(10);
         Stack.push(20);

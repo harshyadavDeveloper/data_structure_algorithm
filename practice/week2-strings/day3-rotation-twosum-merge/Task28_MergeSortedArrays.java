@@ -1,6 +1,6 @@
 // Merge {1, 4, 7, 9} and {2, 3, 5, 10, 11} into one sorted array.
 
-class Main {
+class Task28_MergeSortedArrays {
     public static void main(String[] args) {
         int[] arr1 = { 1, 4, 7, 9 };
         int[] arr2 = { 2, 3, 5, 10, 11 };

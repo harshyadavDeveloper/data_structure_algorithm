@@ -1,7 +1,7 @@
 // Count and print the frequency of each character in "mississippi" (only print letters that actually appear,
 //  alphabetical order, using the freq[26] approach).
 
-class Main {
+class Task22_CharFrequency {
     public static void main(String[] args) {
         String word = "mississippi";
         int[] freq = new int[26]; // to store the frequency for all the possible letters

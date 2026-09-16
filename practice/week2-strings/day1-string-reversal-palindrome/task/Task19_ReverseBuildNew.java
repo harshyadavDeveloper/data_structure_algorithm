@@ -1,6 +1,6 @@
 // Task 19: Reverse the same string using the "build a new string backward" approach. Confirm both approaches give identical output.
 
-class Main {
+class Task19_ReverseBuildNew {
     public static void main(String[] args) {
         String original = "programming";
         String reversed = "";

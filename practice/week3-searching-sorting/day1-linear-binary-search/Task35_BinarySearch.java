@@ -8,7 +8,7 @@
 // arr[7] = 45 < 56, left=mid+1(7), right=9, mid= 16/2=8
 // arr[8] = 56 == 56(match) return index 8
 
-class Main {
+class Task35_BinarySearch {
     public static void main(String[] args) {
         int[] arr = { 2, 5, 8, 12, 16, 23, 38, 45, 56, 72 };
         int target = 56;

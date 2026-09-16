@@ -1,7 +1,7 @@
 // Task 41: Sort {9, 3, 7, 1, 6, 2} ascending using selection sort, exactly as derived above. Print the array after each pass
 // (same style as Task 38).
 
-class Main {
+class Task41_SelectionSort {
     public static void main(String[] args) {
         int[] arr = { 9, 3, 7, 1, 6, 2 };
         int n = arr.length;

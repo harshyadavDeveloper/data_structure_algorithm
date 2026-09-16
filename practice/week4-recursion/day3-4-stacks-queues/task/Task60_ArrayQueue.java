@@ -1,7 +1,7 @@
 /// Task 60: Build the array-based queue exactly as derived above (enqueue, dequeue). Test it: enqueue 10, 20, 30, then dequeue 
 // twice, printing what comes off each time (should be 10, then 20, confirming FIFO order).
 
-class Main{
+class Task60_ArrayQueue{
     public static void main(String[] args){
         Queue.enqueue(10);
         Queue.enqueue(20);

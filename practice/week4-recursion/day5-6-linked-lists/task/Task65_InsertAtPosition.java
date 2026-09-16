@@ -2,7 +2,7 @@
 // Think carefully about the order of the two reference reassignments, the way it was derived above — get the 
 // order wrong and you'll silently lose the rest of the chain.
 
-// class Main {
+// class Task65_InsertAtPosition {
 //     public static void main(String[] args) {
 //         Node first = new Node(10);
 //         Node second = new Node(20);
@@ -34,7 +34,7 @@
 //     }
 // }
 
-class Main {
+class Task65_InsertAtPosition {
     public static void main(String[] args) {
         Node first = new Node(10);
         Node second = new Node(20);

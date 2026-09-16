@@ -1,6 +1,6 @@
 // Check if "listen" and "silent" are anagrams (should be true), and separately check "hello" and "world" (should be false).
 
-class Main {
+class Task24_AnagramCheck {
     public static void main(String[] args) {
         String word1 = "hello";
         String word2 = "world";

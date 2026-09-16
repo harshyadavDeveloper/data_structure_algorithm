@@ -7,7 +7,7 @@
 
 import java.util.Stack;
 
-class Main {
+class Task61_ValidParentheses {
     public static void main(String[] args) {
         System.out.println(isBalanced("({[]})"));
         System.out.println(isBalanced("({[})]"));

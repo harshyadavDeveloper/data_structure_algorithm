@@ -1,6 +1,6 @@
 // Rotate {10, 20, 30, 40, 50} right by 3 (expected: {30, 40, 50, 10, 20}).
 
-class Main {
+class Task26_RotateArray {
     public static void main(String[] args) {
         int[] arr = { 10, 20, 30, 40, 50 };
         int length = arr.length;

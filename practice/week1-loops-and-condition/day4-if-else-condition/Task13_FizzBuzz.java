@@ -3,7 +3,7 @@
 // writing code, answer in your notebook: why must the "divisible by both" check come first in your if-else chain, rather than 
 // last? Think about what happens to a number like 15 if you check "divisible by 3" before checking "divisible by both."
 
-class Main {
+class Task13_FizzBuzz {
     public static void main(String[] args) {
         for (int i = 1; i <= 30; i++) {
             if (i % 3 == 0 && i % 5 == 0) {

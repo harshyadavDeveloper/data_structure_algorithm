@@ -4,7 +4,7 @@
 // between rotating left by k and rotating right by some other value, given the array's length? Or derive
 // a fresh formula directly for left rotation — either path is fine, whichever makes more sense to you.)
 
-class Main {
+class Task29_RotateLeft {
     public static void main(String[] args) {
         int[] arr = { 1, 2, 3, 4, 5 };
         int k = 2;

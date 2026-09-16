@@ -1,4 +1,4 @@
-// class Main {
+// class node {
 //     public static void main(String[] args) {
 //         Node first = new Node(10);
 //         Node second = new Node(20);
@@ -16,7 +16,7 @@
 //     }
 // }
 
-class Main {
+class node {
     public static void main(String[] args) {
         Node first = new Node(10);
         Node second = new Node(20);

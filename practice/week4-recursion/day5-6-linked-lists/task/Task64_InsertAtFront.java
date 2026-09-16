@@ -1,7 +1,7 @@
 // Task 64: Insert a new node with value 5 at the front of your Task 63 list. Print the full chain before and 
 // after to confirm.
 
-class Main {
+class Task64_InsertAtFront {
     public static void main(String[] args) {
         Node first = new Node(10);
         Node second = new Node(20);

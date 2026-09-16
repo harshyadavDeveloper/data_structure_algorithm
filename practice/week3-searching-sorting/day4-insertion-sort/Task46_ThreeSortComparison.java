@@ -5,7 +5,7 @@
 // data looks like (e.g., nearly-sorted data vs. reverse-sorted data might favor different algorithms). This is a 
 // conceptual wrap-up, not new code — just genuine reflection tying the week together.
 
-class Main {
+class Task46_ThreeSortComparison {
     public static void main(String[] args) {
         // selecionSort();
         // bubbleSort();

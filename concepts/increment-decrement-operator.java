@@ -2,7 +2,7 @@
 // i++ (post-increment): "use the current value first, then increase it." The expression evaluates to the old value.
 // ++i (pre-increment): "increase it first, then use the new value." The expression evaluates to the new value.
 
-class Main {
+class IncrementDecrementOperator {
     public static void main(String[] args) {
         // int i=5;
         // int a = i++; // gets the old value of i(5), then increments it NEW(6)

@@ -1,6 +1,6 @@
 // Given {4, 8, 15, 16, 23, 42}, print every element once using a single loop. (Maps to Q1.)
 
-class Main {
+class Task72_PrintAllElements {
     public static void main(String[] args) {
         int[] arr = { 4, 8, 15, 16, 23, 42 };
         int n = arr.length;

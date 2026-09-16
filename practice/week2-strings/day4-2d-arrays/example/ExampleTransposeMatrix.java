@@ -1,7 +1,7 @@
 // Task: turn {{1,2,3},{4,5,6}} into {{1,4},{2,5},{3,6}}.
 // the core idea of transpose is matrix[row][col] -> transpose[col][row]
 
-class Main {
+class ExampleTransposeMatrix {
     public static void main(String[] args) {
         int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 } };
         int rows = matrix.length;

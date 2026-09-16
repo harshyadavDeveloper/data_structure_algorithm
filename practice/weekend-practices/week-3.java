@@ -1,4 +1,4 @@
-class Main {
+class Week3 {
     public static void main(String[] args) {
         // bubbleSort();
         // descSelectionSort();

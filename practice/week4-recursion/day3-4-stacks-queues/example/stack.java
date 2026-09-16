@@ -1,4 +1,4 @@
-class Main {
+class stack {
     public static void main(String[] args) {
         Stack.push(10);
         Stack.push(20);

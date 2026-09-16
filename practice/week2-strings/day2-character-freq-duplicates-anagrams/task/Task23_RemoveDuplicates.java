@@ -1,6 +1,6 @@
 // Remove duplicate characters from "programming", keeping only the first occurrence of each letter (expected result: "progamin").
 
-class Main {
+class Task23_RemoveDuplicates {
     public static void main(String[] args) {
         String word = "programming";
         boolean[] seen = new boolean[26]; // initializes 26 slots with false

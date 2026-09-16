@@ -1,4 +1,4 @@
-class Main {
+class ChartToIndexConversion {
     public static void main(String[] args) {
         // char c = 'e';
         // int index = c - 'a'; // return 4

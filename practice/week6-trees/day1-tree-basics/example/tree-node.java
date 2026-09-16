@@ -1,4 +1,4 @@
-class Main {
+class TreeNode {
     public static void main(String[] args) {
         TreeNode root = new TreeNode(10);
         root.left = new TreeNode(5);

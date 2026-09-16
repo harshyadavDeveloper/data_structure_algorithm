@@ -3,7 +3,7 @@
 // predict in your notebook whether the outputs will be identical or different between the two versions, and why, before running 
 // either.
 
-class Main {
+class Task9_DoWhileLoop2 {
     public static void main(String[] args) {
         int i = 1;
         do {

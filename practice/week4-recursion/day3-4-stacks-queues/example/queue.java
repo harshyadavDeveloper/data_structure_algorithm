@@ -1,4 +1,4 @@
-class Main {
+class queue {
     public static void main(String[] args) {
 
         Queue.enqueue(10);

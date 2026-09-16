@@ -1,4 +1,4 @@
-class Main {
+class InsertionSort {
     public static void main(String[] args) {
         insertionSort();
         int[] arr = { 5, 2, 8, 1 };

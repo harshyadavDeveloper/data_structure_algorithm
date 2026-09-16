@@ -1,7 +1,7 @@
 // Task 87: First insert 45 into your tree (as a right child of 40, making 40 have exactly one child). Delete 40. Confirm 45 correctly 
 // takes 40's place — trace what your delete() does here by hand before running.
 
-class Main {
+class Task87_DeleteOneChild {
     public static void main(String[] args) {
         int[] arr = { 50, 30, 70, 20, 40, 60, 80 };
         TreeNode root = null;

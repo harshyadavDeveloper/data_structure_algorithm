@@ -1,4 +1,4 @@
-class Main {
+class class {
     public static void main(String[] args) {
         Dog dog1 = new Dog("Trex", 2);
         Dog dog2 = new Dog("Bella", 7);

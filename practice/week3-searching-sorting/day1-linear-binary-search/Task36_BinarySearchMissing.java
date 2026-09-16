@@ -9,7 +9,7 @@
 // 56 < 100, start=mid+1=9, end=9, mid=9 = arr[9] is 72
 // 72 < 100, start= mid+1-10, end=9 condition start<=end i.e.: 10<=9 meaning the target is not present return -1
 
-class Main {
+class Task36_BinarySearchMissing {
     public static void main(String[] args) {
         int[] arr = { 2, 5, 8, 12, 16, 23, 38, 45, 56, 72 };
         int target = 100;

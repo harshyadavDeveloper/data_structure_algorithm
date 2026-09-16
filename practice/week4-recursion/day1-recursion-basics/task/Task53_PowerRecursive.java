@@ -2,7 +2,7 @@
 // recursion, not Math.pow. Think it through the same way as factorial: how can 2^5 be redefined in terms of a smaller version 
 // of itself? What's the base case (the smallest exponent that needs no further breaking down)?
 
-class Main {
+class Task53_PowerRecursive {
     public static void main(String[] args) {
         power(4, 5);
 

@@ -1,6 +1,6 @@
 // Task 30: Given {{2,4,6},{1,3,5},{7,8,9}}, find and print the sum of all elements.
 
-class Main {
+class Task30_MatrixSum {
     public static void main(String[] main) {
         int[][] matrix = { { 2, 4, 6 }, { 1, 3, 5 }, { 7, 8, 9 } };
         int sum = 0;

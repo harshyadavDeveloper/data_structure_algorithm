@@ -2,7 +2,7 @@
 // given that rule, without checking every single node, where must the smallest value always live? (Hint: which direction would 
 // you keep walking, and when do you stop?)
 
-class Main {
+class Task84_FindMinMax {
     public static void main(String[] args) {
         int[] arr = { 50, 30, 70, 20, 40, 60, 80 };
         TreeNode root = null;

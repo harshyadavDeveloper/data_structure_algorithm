@@ -1,4 +1,4 @@
-class Main {
+class inheritance {
     public static void main(String[] args) {
         Dog d = new Dog("Rex", "Bull Dog");
         d.makeSound();

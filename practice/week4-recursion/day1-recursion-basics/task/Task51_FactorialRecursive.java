@@ -2,7 +2,7 @@
 // function (before the base case check) printing n, so you can literally watch the "going down" phase happen, then add another 
 // print right before each return showing what's being returned, so you can watch the "coming back up" phase too.
 
-class Main {
+class Task51_FactorialRecursive {
     public static void main(String[] args) {
         factorial(6);
 

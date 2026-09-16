@@ -3,7 +3,7 @@
 // to 0 (print an error message and don't change the field if invalid). Test: create a rectangle, try setting a negative width (should be 
 // rejected), try setting a valid width (should succeed), print the area after.
 
-class Main {
+class rectangle {
     public static void main(String[] args) {
         Rectangle rec = new Rectangle(7, 8);
         rec.setWidth(-3); // prints Width cannot be negative

@@ -2,7 +2,7 @@
 // from a few days ago. Think about what type your sum and count need to be, or how you divide, to actually get a decimal answer 
 // instead of a truncated one.)
 
-class Main{
+class Task16_PrintAverage{
     public static void main(String[] args){
         int[] arr = {4, 15, 7, 22, 9, 3};
         int sum = 0;

@@ -2,7 +2,7 @@ import java.util.*;
 import java.util.Queue;
 import java.util.Stack;
 
-class Main {
+class Week4 {
     public static void main(String[] args) {
         String word = "racecar";
         // System.out.println("Factorial is: " + factorial(7));

@@ -4,7 +4,7 @@ package task;
 // Drawable (in addition to extending Shape) with a draw() that prints something like "Drawing a circle with radius X". Test: 
 // create a Circle, call both .area()-related behavior and .draw().
 
-class Main {
+class Task_K_DrawableInterface {
     public static void main(String[] args) {
         Circle c = new Circle(5);
         c.describe();

@@ -4,7 +4,7 @@
 // computed only once (roughly 11 computations for fibonacci(0) through fibonacci(10)) — the gap between those two numbers is 
 // the wasted, duplicated work, made concrete and countable rather than just visible in a tree diagram.
 
-class Main {
+class Task58_CallCountFibonacci {
     static int count = 0;
 
     public static void main(String[] args) {

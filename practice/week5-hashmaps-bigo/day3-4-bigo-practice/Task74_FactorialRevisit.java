@@ -2,7 +2,7 @@
 // Task 58 (Fibonacci) to it as well — increment a class-level counter once per call. (Maps to Q3 — compare the call count's 
 // growth pattern to Fibonacci's.)
 
-class Main {
+class Task74_FactorialRevisit {
     static int callCount = 0;
 
     public static void main(String[] args) {

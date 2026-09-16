@@ -1,6 +1,6 @@
 // Task 14: Given {4, 15, 7, 22, 9, 3}, find and print the sum of all elements.
 
-class Main {
+class Task14_PrintSum {
     public static void main(String[] args) {
         int[] arr = { 4, 15, 7, 22, 9, 3 };
         int sum = 0;

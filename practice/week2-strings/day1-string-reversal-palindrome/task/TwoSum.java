@@ -1,6 +1,6 @@
 // given sorted array {2, 7, 11, 15}, find two numbers that add up to 9
 
-class Main {
+class TwoSum {
     public static void main(String[] args) {
         int[] arr = { 2, 7, 11, 15 };
         int target = 9;

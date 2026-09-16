@@ -1,4 +1,4 @@
-class Main {
+class MyInbuildFunctions {
     public static void main(String[] args) {
         boolean isPattern = contains("cat", "at");
         char chars = myCharAt("harsh", 2);

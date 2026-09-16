@@ -1,4 +1,4 @@
-class Main {
+class RecursiveBinarySearch {
     public static void main(String[] args) {
         int[] arr = { 1, 4, 5, 8, 9, 11, 15 };
         int start = 0;

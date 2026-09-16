@@ -1,6 +1,6 @@
 // given "aabbccdd", produce "abcd" — each character kept only once, first appearance wins.
 
-class Main {
+class ExampleRemoveDuplicateString {
     // public static void main(String[] args) {
     // String word = "aabbccdd";
     // boolean[] seen = new boolean[26];

@@ -1,5 +1,5 @@
 // find and print sum of all elements in a matrix
-class Main {
+class ExampleSumOfMatrix {
   public static void main(String[] args) {
     int[][] matrix = {
         { 1, 2, 3 },

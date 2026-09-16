@@ -3,7 +3,7 @@
 
 import java.util.HashMap;
 
-class Main {
+class Task68_HashMapFrequency {
     public static void main(String[] args) {
         String word = "mississippi";
         HashMap<Character, Integer> seen = new HashMap<>();

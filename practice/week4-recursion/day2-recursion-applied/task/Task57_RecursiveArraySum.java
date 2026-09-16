@@ -3,7 +3,7 @@
 // valid index?). Derive this yourself the same way as the others — think about how "sum of everything from index to the end" 
 // relates to "sum of everything from index+1 to the end."
 
-class Main {
+class Task57_RecursiveArraySum {
     public static void main(String[] args) {
         int[] arr = { 1, 5, 3, 55, 77, 22, 21, 32, 47 };
         int index = 4;

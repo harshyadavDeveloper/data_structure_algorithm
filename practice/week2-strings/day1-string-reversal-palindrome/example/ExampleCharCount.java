@@ -1,4 +1,4 @@
-class Main {
+class ExampleCharCount {
     // public static void main(String[] args){
     // String word = "harsh";
     // int[] freq = new int[26]; // create a array with exactly 26 slots
