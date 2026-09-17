@@ -54,3 +54,149 @@
  * Extra point: class doesn't take memory until you create an object, memory
  * allocated only on 'new'.
  */
+
+/*
+ * Q3: Explain the 'new' keyword in Java? What happens if we don't use it?
+ * Answer:
+ * 'new' keyword is used to create an object. It does 3 things basically:
+ * 1. Allocates memory for the object on the HEAP.
+ * 2. Calls the constructor of that class to initialize the object.
+ * 3. Returns a reference (address) to that object, which you store in a
+ * variable.
+ *
+ * Ex: Car myCar = new Car();
+ * Here 'new Car()' creates the actual object in heap memory, and myCar just
+ * holds
+ * the reference/address pointing to it. myCar itself is not the object, its a
+ * reference variable.
+ *
+ * What if we don't use 'new'?
+ * If you just do: Car myCar; -> this only declares a reference variable, no
+ * object is created.
+ * It just sits in memory as 'null', pointing to nothing.
+ * If you try to call any method or access any field on it without using 'new'
+ * first,
+ * you'll get a NullPointerException, because there's no actual object, just an
+ * empty reference.
+ *
+ * Interview line: "'new' allocates memory on heap, calls constructor, and gives
+ * back a reference.
+ * Without it, you only have a reference pointing to null, and using it directly
+ * causes NullPointerException."
+ */
+
+/*
+ * Q4: Explain encapsulation with a real-world example (different one).
+ * Answer:
+ * Encapsulation = wrapping data + methods together, and hiding the data from
+ * outside,
+ * only letting it be accessed thru controlled methods (getters/setters).
+ *
+ * Real world example: ATM Machine
+ * When you withdraw cash, you don't directly touch the machine's internal cash
+ * storage
+ * or database. You just interact with a screen -> enter pin, enter amount,
+ * click withdraw.
+ * Internally it checks balance, validates pin, updates database - all hidden
+ * from you.
+ * You never get direct access to the internal logic/data, you only use the
+ * exposed interface (buttons/screen).
+ *
+ * In code terms: internal cash count, account balance = private variables.
+ * withdraw(), checkBalance() = public methods that control HOW those private
+ * variables are accessed/changed.
+ * You can't just directly set balance = 999999, gotta go thru proper method
+ * which validates everything first.
+ *
+ * Interview line: "Encapsulation is like an ATM - you interact only through
+ * defined actions
+ * (withdraw/deposit), the actual sensitive data (account balance, cash inside)
+ * stays hidden and
+ * protected, accessible only through controlled methods."
+ */
+
+/*
+ * Q5: Why does Java not allow multiple inheritance of classes, but allows it
+ * for interfaces?
+ * Answer:
+ * The main reason is the "Diamond Problem".
+ *
+ * If Java allowed a class to extend 2 classes, and both parent classes have a
+ * method
+ * with SAME name and signature but DIFFERENT implementation, then compiler gets
+ * confused
+ * -> which version should the child class inherit? No way to decide ->
+ * ambiguity.
+ *
+ * Ex: ClassA has show() printing "A", ClassB has show() printing "B".
+ * If ClassC extends both A and B, and you call show() on ClassC object,
+ * java has no idea which show() to pick. That's the diamond problem.
+ *
+ * Why interfaces are fine with multiple inheritance:
+ * Before Java 8 - interfaces only had abstract methods (no body), so no
+ * implementation
+ * clash was possible, just method signatures, no conflict.
+ *
+ * After Java 8 - interfaces can have default methods (with body). So
+ * technically diamond
+ * problem CAN happen here too, but Java solves it by forcing you to override
+ * that method
+ * in the implementing class if there's a conflict. Compiler gives an error and
+ * says
+ * "you resolve it yourself" - so it's not silently ambiguous, YOU explicitly
+ * decide which one to use.
+ *
+ * Interview line: "Java avoids multiple inheritance in classes to prevent the
+ * diamond problem -
+ * ambiguity when two parent classes have same method. Interfaces allow it
+ * because either there's
+ * no implementation to conflict (abstract methods), or if there is (default
+ * methods), Java forces
+ * the class to explicitly override and resolve the conflict itself."
+ */
+
+/*
+ * Q5 (Visual): Diamond Problem
+ *
+ * ClassA
+ * show() -> "A"
+ * / \
+ * / \
+ * ClassB ClassC
+ * (extends A) (extends A)
+ * show() -> "B" show() -> "C" <-- imagine if this override existed
+ * \ /
+ * \ /
+ * ClassD
+ * (extends B, C) <-- NOT ALLOWED in java
+ *
+ * ClassD obj = new ClassD();
+ * obj.show(); --> WHICH show()? B's version or C's version? AMBIGUOUS!
+ *
+ * That's why Java says "nah" and doesn't let a class extend 2 classes.
+ *
+ * -----------------------------------------------------------
+ *
+ * Same shape but with INTERFACES (this IS allowed):
+ *
+ * InterfaceA
+ * default show()
+ * / \
+ * / \
+ * InterfaceB InterfaceC
+ * default show() default show()
+ * \ /
+ * \ /
+ * ClassD
+ * implements B, C
+ *
+ * Here Java says "ok fine, but YOU tell me which show() to use" ->
+ * forces you to write:
+ *
+ * public void show() {
+ * InterfaceB.super.show(); // explicitly pick one
+ * }
+ *
+ * So ambiguity is resolved by YOU, not left hanging like in class multiple
+ * inheritance.
+ */
