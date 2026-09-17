@@ -200,3 +200,115 @@
  * So ambiguity is resolved by YOU, not left hanging like in class multiple
  * inheritance.
  */
+
+/*
+ * Q6: Difference between Method Overloading and Method Overriding
+ * Answer:
+ *
+ * OVERLOADING (compile time / static binding)
+ * - Same method name, DIFFERENT parameters (number or type)
+ * - Happens in the SAME class
+ * - Decided by compiler at COMPILE time (based on method signature)
+ * - No need for inheritance
+ *
+ * void add(int a, int b) {}
+ * void add(int a, int b, int c) {}
+ * void add(double a, double b) {}
+ *
+ * OVERRIDING (runtime / dynamic binding)
+ * - Same method name, SAME parameters, but implementation changes
+ * - Happens between PARENT and CHILD class (needs inheritance)
+ * - Decided at RUNTIME (based on actual object type, not reference type)
+ *
+ * class Animal { void sound() { System.out.println("some sound"); } }
+ * class Dog extends Animal { void sound() { System.out.println("bark"); } }
+ *
+ * -----------------------------------------------------------
+ * MEMORY TRICK so you never confuse again:
+ *
+ * OVER-LOAD -> think "LOAD more stuff into the SAME method name" ->
+ * you're loading extra/different PARAMETERS onto one name, same class, same
+ * place.
+ *
+ * OVER-RIDE -> think "RIDE OVER / replace what's already there" ->
+ * child class is literally riding over / stepping on top of the parent's method
+ * and replacing its behavior. Needs parent-child (inheritance) relationship.
+ *
+ * Quick check whenever confused, ask yourself 2 questions:
+ * 1. Is inheritance involved (parent-child)? -> if YES = overriding, if NO =
+ * overloading
+ * 2. Are parameters same or different? -> different = overloading, same =
+ * overriding
+ *
+ * Interview line: "Overloading is same method name with different parameters in
+ * the same class,
+ * resolved at compile time. Overriding is same method same parameters but
+ * different
+ * implementation in parent vs child class, resolved at runtime based on actual
+ * object type."
+ */
+
+/*
+ * Q7: What is constructor chaining, and why use this(...) vs super(...)?
+ * Answer:
+ *
+ * Constructor chaining = calling one constructor from another constructor.
+ * Basically instead of repeating same init code in multiple constructors,
+ * you call one constructor from another, so code doesn't get duplicated.
+ *
+ * this(...) -> calls ANOTHER constructor in the SAME class
+ * super(...) -> calls a constructor in the PARENT class
+ *
+ * Both must be the FIRST line of the constructor if used, and you can only use
+ * ONE
+ * of them in a single constructor (cant use both this() and super() together).
+ *
+ * Example with this():
+ * class Car {
+ * String name;
+ * int speed;
+ *
+ * Car() {
+ * this("Default", 100); // calls the constructor below
+ * System.out.println("Empty constructor called");
+ * }
+ *
+ * Car(String name, int speed) {
+ * this.name = name;
+ * this.speed = speed;
+ * }
+ * }
+ * Here Car() doesn't repeat the assignment logic, it just calls Car(String,int)
+ * to do it.
+ *
+ * Example with super():
+ * class Animal {
+ * Animal(String sound) {
+ * System.out.println("Animal makes sound: " + sound);
+ * }
+ * }
+ * class Dog extends Animal {
+ * Dog() {
+ * super("Bark"); // calls parent Animal's constructor
+ * System.out.println("Dog created");
+ * }
+ * }
+ * Here Dog's constructor is telling the parent (Animal) to run its setup first,
+ * then continues with its own extra setup.
+ *
+ * Why you'd use them:
+ * - this() -> avoid duplicate code between constructors of the SAME class
+ * (constructor overloading scenario)
+ * - super() -> make sure parent class's setup/initialization happens before
+ * child adds its own stuff.
+ * (Also note: if you don't explicitly call super(), Java automatically calls
+ * the parent's
+ * no-arg constructor first anyway, that's default behavior)
+ *
+ * Interview line: "Constructor chaining means one constructor calls another to
+ * avoid duplicate
+ * init code. this() calls another constructor in the same class, super() calls
+ * the parent
+ * class's constructor - and whichever you use, it has to be the first statement
+ * in the constructor."
+ */
