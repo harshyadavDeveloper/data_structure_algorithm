@@ -427,3 +427,70 @@
  * parent reference
  * pointing to a child object."
  */
+
+/*
+ * Q11: Why prefer private fields with public getters/setters over just making
+ * fields public?
+ * Answer:
+ *
+ * If fields are public, ANYONE from outside the class can directly change them
+ * to
+ * ANY value, even invalid/garbage values. No control, no validation, nothing.
+ *
+ * class Account {
+ * public double balance; // BAD - public field
+ * }
+ * Account acc = new Account();
+ * acc.balance = -5000; // this compiles fine! but makes no sense, negative
+ * balance??
+ * No one stopped this, no validation happened. That's the problem.
+ *
+ * -----------------------------------------------------------
+ *
+ * If field is private, and you expose it thru getter/setter, you get CONTROL:
+ *
+ * class Account {
+ * private double balance; // hidden
+ *
+ * public double getBalance() {
+ * return balance;
+ * }
+ * public void setBalance(double balance) {
+ * if (balance < 0) {
+ * System.out.println("Invalid balance, cant be negative");
+ * return;
+ * }
+ * this.balance = balance;
+ * }
+ * }
+ * Now no one can set balance = -5000 directly, they HAVE to go thru
+ * setBalance(),
+ * and setBalance() has validation logic to stop bad values.
+ *
+ * -----------------------------------------------------------
+ * Other reasons (quick list):
+ * 1. VALIDATION - you can check/filter values before actually setting them
+ * (like above)
+ * 2. READ-ONLY control - you can give only a getter and no setter, so outside
+ * code
+ * can READ the value but never CHANGE it (like an ID field)
+ * 3. FLEXIBILITY - later if logic changes (like you want to log every time
+ * balance changes,
+ * or calculate something extra), you just modify the setter/getter, no need to
+ * touch
+ * code everywhere that uses this field. If field was public, you can't add this
+ * logic later easily.
+ * 4. HIDING INTERNAL IMPLEMENTATION - outside code doesn't need to know HOW the
+ * data
+ * is stored internally, they just use getX()/setX(), you can change internal
+ * representation anytime without breaking outside code.
+ *
+ * Interview line: "Public fields let anyone modify them freely with no
+ * validation or control,
+ * which can break the object's state. Private fields with getters/setters let
+ * you validate
+ * input, control read/write access separately, and change internal
+ * implementation later
+ * without affecting outside code - basically this IS encapsulation in
+ * practice."
+ */
