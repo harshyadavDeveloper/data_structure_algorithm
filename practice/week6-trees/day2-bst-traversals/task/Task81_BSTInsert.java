@@ -10,18 +10,18 @@ class Main {
         for (int value : arr) {
             root = insert(root, value);
         }
-        inOder(root);
+        inOrder(root);
 
     }
 
-    public static void inOder(TreeNode node) {
+    public static void inOrder(TreeNode node) {
         if (node == null) {
             return;
         }
 
-        inOder(node.left);
+        inOrder(node.left);
         System.out.print(node.data + " ");
-        inOder(node.right);
+        inOrder(node.right);
     }
 
     public static TreeNode insert(TreeNode node, int value) {

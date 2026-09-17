@@ -12,7 +12,7 @@ class Main {
         System.out.println("Tree After inserting 45: ");
         root = insert(root, 45);
         inOrder(root);
-        System.out.println("45 has children of: " + countChildren(root, 40));
+        System.out.println("45 has total children: " + countChildren(root, 40));
         delete(root, 40);
         inOrder(root);
 
