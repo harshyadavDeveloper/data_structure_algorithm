@@ -312,3 +312,118 @@
  * class's constructor - and whichever you use, it has to be the first statement
  * in the constructor."
  */
+
+/*
+ * Q9: What does "IS-A" vs "HAS-A" mean? Example of each.
+ * Answer:
+ *
+ * IS-A relationship -> achieved through INHERITANCE (extends)
+ * Means one class is a TYPE of another class. Sub class IS-A parent class.
+ *
+ * class Animal { }
+ * class Dog extends Animal { } // Dog IS-A Animal ✅ makes sense
+ *
+ * Test: ask yourself "can I say X is a Y?" -> "Dog is an Animal" -> sounds
+ * correct -> use inheritance
+ *
+ * -----------------------------------------------------------
+ *
+ * HAS-A relationship -> achieved through COMPOSITION (one class has a
+ * reference/object of another class as a field)
+ * Means one class CONTAINS/uses another class, not a type of it.
+ *
+ * class Engine { void start() { System.out.println("engine started"); } }
+ * class Car {
+ * Engine engine = new Engine(); // Car HAS-A Engine
+ * void drive() {
+ * engine.start();
+ * System.out.println("car moving");
+ * }
+ * }
+ *
+ * Test: ask yourself "can I say X is a Y?" -> "Car is an Engine"?? -> sounds
+ * wrong ->
+ * so it's not inheritance, it's "Car HAS-A Engine" -> composition
+ *
+ * -----------------------------------------------------------
+ * Simple trick: whenever confused between using inheritance or composition,
+ * just say the sentence "X is a Y" out loud.
+ * - If it sounds natural -> IS-A -> inheritance (extends)
+ * - If it sounds weird -> HAS-A -> composition (make it a field inside the
+ * class)
+ *
+ * Real world combo example:
+ * "Dog IS-A Animal" (inheritance) but "Dog HAS-A Tail" (composition, tail is a
+ * separate object inside Dog)
+ *
+ * Interview line: "IS-A means inheritance, a subclass is a specific type of its
+ * parent class.
+ * HAS-A means composition, a class contains an object of another class as one
+ * of its fields,
+ * used when the relationship is 'contains' rather than 'is a type of'."
+ */
+
+/*
+ * Q10: Runtime Polymorphism vs Compile-time Polymorphism
+ * Answer:
+ *
+ * COMPILE-TIME POLYMORPHISM (a.k.a Static Binding)
+ * - Achieved through METHOD OVERLOADING
+ * - Compiler decides WHICH method to call at compile time itself,
+ * based on number/type of arguments you pass
+ * - Doesn't depend on object, purely based on method signature match
+ *
+ * class Calculator {
+ * int add(int a, int b) { return a+b; }
+ * double add(double a, double b) { return a+b; }
+ * }
+ * Calculator c = new Calculator();
+ * c.add(2, 3); // compiler already knows at compile time -> calls int version
+ * c.add(2.5, 3.5); // compiler already knows -> calls double version
+ *
+ * -----------------------------------------------------------
+ *
+ * RUNTIME POLYMORPHISM (a.k.a Dynamic Binding)
+ * - Achieved through METHOD OVERRIDING
+ * - JVM decides WHICH method to call at RUNTIME, based on the ACTUAL OBJECT
+ * type
+ * (not the reference type)
+ * - This is the classic "upcasting" scenario
+ *
+ * class Animal {
+ * void sound() { System.out.println("some sound"); }
+ * }
+ * class Dog extends Animal {
+ * void sound() { System.out.println("bark"); }
+ * }
+ *
+ * Animal a = new Dog(); // reference type = Animal, actual object = Dog
+ * a.sound(); // prints "bark" -> decided at RUNTIME based on actual object
+ * (Dog)
+ *
+ * Even though 'a' is declared as Animal type, JVM looks at what object it
+ * ACTUALLY points to
+ * (Dog), and calls Dog's version. This is why it's called "dynamic" - decided
+ * while program runs.
+ *
+ * -----------------------------------------------------------
+ * Simple trick to remember:
+ * Compile time = COMPILER can figure it out just by looking at code (which
+ * add() to call, obvious from args)
+ * Runtime = only JVM knows at RUNTIME which actual object is sitting there, so
+ * it waits till then
+ *
+ * Also connect with previous trick:
+ * Overloading = compile time (same as before)
+ * Overriding = runtime (same as before)
+ * So this question is basically same concept as Q6, just asked with different
+ * wording ("polymorphism" angle instead of "method" angle)
+ *
+ * Interview line: "Compile-time polymorphism is method overloading, resolved by
+ * the compiler
+ * based on method signature. Runtime polymorphism is method overriding,
+ * resolved by JVM at
+ * runtime based on the actual object type, commonly seen with upcasting -
+ * parent reference
+ * pointing to a child object."
+ */
