@@ -60,7 +60,6 @@
  * static methods where creating an object doesn't make sense."
  */
 
-
 /*
  * Q2: If a subclass doesn't override a parent's method, and you call it through
  * a
@@ -131,4 +130,140 @@
  * whichever version actually exists on the object at runtime; when only one
  * version exists
  * (the inherited one), that's naturally what gets called."
+ */
+
+/*
+ * Q3: Can you override a private method? What actually happens if you try?
+ * Answer:
+ * NO, you cannot override a private method. Private methods are NOT visible to
+ * subclasses at all - they're not even inherited in the "overridable" sense.
+ *
+ * What actually happens if you try:
+ * If you write a method with the SAME name and signature as the parent's
+ * private
+ * method inside the child class, Java does NOT treat it as overriding.
+ * Instead, it's treated as a completely NEW, independent method that just
+ * happens
+ * to have the same name. This is called "METHOD HIDING" (not overriding).
+ *
+ * class Animal {
+ * private void sound() { System.out.println("Animal sound"); }
+ *
+ * public void makeSound() {
+ * sound(); // this always calls Animal's own private sound()
+ * }
+ * }
+ *
+ * class Dog extends Animal {
+ * private void sound() { System.out.println("Dog sound"); } // NOT overriding,
+ * new method
+ * }
+ *
+ * Animal a = new Dog();
+ * a.makeSound(); // prints "Animal sound" <- NOT "Dog sound"!
+ *
+ * -----------------------------------------------------------
+ * WHY: Since Animal's sound() is private, it's only accessible/callable within
+ * Animal
+ * class itself. makeSound() calls sound() which resolves to Animal's own
+ * private method
+ * at COMPILE time (static binding, not dynamic dispatch) because private
+ * methods don't
+ * participate in runtime polymorphism at all. Dog's sound() is basically
+ * invisible to
+ * Animal, they don't even know about each other - they're two totally separate
+ * methods
+ * that just share a name by coincidence.
+ *
+ * Quick way to spot this in code: if you see @Override on a method trying to
+ * override
+ * a private method, Java will actually give a COMPILE ERROR saying method does
+ * not
+ * override a method from its superclass - because there's nothing to override,
+ * private
+ * methods aren't part of the inheritance contract at all.
+ *
+ * Interview line: "No, private methods can't be overridden because they're not
+ * visible
+ * to subclasses - they're not part of inheritance at all. If you write a
+ * same-named method
+ * in the child class, it's not overriding, it's a completely separate method
+ * (method hiding),
+ * and calls from the parent class will always resolve to the parent's own
+ * private method,
+ * not the child's."
+ */
+
+
+/*
+ * Q4: Can you override a static method? Difference between "hiding" and
+ * "overriding"?
+ * Answer:
+ * NO, static methods cannot be overridden. If you write a static method with
+ * the
+ * same name+signature in the child class, it's called METHOD HIDING, not
+ * overriding.
+ *
+ * WHY: Static methods belong to the CLASS itself, not to any object. They're
+ * resolved
+ * at COMPILE time based on the REFERENCE TYPE, not the actual object.
+ * Overriding
+ * only works with instance methods because that needs runtime dynamic dispatch
+ * (JVM checking actual object type) - static methods never go through that
+ * mechanism at all.
+ *
+ * class Animal {
+ * static void sound() { System.out.println("Animal static sound"); }
+ * void run() { System.out.println("Animal runs"); } // instance method
+ * }
+ *
+ * class Dog extends Animal {
+ * static void sound() { System.out.println("Dog static sound"); } // HIDING,
+ * not overriding
+ *
+ * @Override
+ * void run() { System.out.println("Dog runs"); } // real overriding
+ * }
+ *
+ * Animal a = new Dog();
+ * a.sound(); // prints "Animal static sound" <- decided by REFERENCE TYPE
+ * (Animal), compile time
+ * a.run(); // prints "Dog runs" <- decided by ACTUAL OBJECT (Dog), runtime
+ *
+ * -----------------------------------------------------------
+ * THE REAL DIFFERENCE - HIDING vs OVERRIDING:
+ *
+ * OVERRIDING (instance methods):
+ * - Resolved at RUNTIME based on ACTUAL OBJECT type
+ * - a.run() -> JVM looks at what 'a' actually points to (Dog) -> calls Dog's
+ * run()
+ * - This is dynamic method dispatch, true polymorphism
+ *
+ * HIDING (static methods):
+ * - Resolved at COMPILE TIME based on REFERENCE TYPE (the declared type, left
+ * side)
+ * - a.sound() -> compiler only looks at 'a' being declared as Animal -> calls
+ * Animal's sound()
+ * - Doesn't matter what actual object a points to, compiler doesn't even check
+ * that for statics
+ * - No polymorphism involved here at all, its purely based on how you declared
+ * the variable
+ *
+ * Extra trick to catch this in interview: if you call static method using the
+ * CLASS NAME
+ * directly (like Dog.sound() or Animal.sound()) instead of an object reference,
+ * it makes
+ * this even more obvious - you're literally calling "that class's version", no
+ * ambiguity,
+ * no runtime object involved at all.
+ *
+ * Interview line: "Static methods can't be overridden, only hidden. The key
+ * difference is
+ * WHEN and HOW the method is resolved - overriding is resolved at runtime based
+ * on the
+ * actual object type (dynamic dispatch), hiding is resolved at compile time
+ * based on the
+ * reference type. That's why calling a hidden static method through a parent
+ * reference
+ * always calls the parent's version, even if the actual object is a child."
  */
