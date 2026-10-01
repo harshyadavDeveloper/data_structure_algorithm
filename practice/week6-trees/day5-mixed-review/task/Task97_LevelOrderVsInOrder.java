@@ -1,6 +1,10 @@
-// On the tree after the Task 95 deletion, run your height() and isBalanced() methods from Day 1 and Day 4.
-// Question to think through first: deleting a node can only ever make a tree's height stay the same or decrease — never increase. 
-// Does that match what you see when you compare the height before and after deleting 30?
+import java.util.LinkedList;
+import java.util.Queue;
+
+// Run both levelOrder() (Day 3) and inOrder() on the tree after deletion. You'll get two different-looking sequences of the same 8 remaining numbers.
+// Question: in-order gives you sorted output no matter the tree's shape — you proved that back in Task 89. Does level-order have 
+// that same property, or does its output depend on shape? Think about it, then check by comparing level-order output against the 
+// shape you drew for Task 95.
 
 class Main {
     public static void main(String[] args) {
@@ -10,11 +14,14 @@ class Main {
         for (int num : arr) {
             root = insert(root, num);
         }
-        System.out.println("Height of the tree before deleting 30: " + height(root));
-        System.out.println("Tree balanced before removing 30: " + isBalanced(root));
+        // System.out.println("Height of the tree before deleting 30: " + height(root));
+        // System.out.println("Tree balanced before removing 30: " + isBalanced(root));
+        levelOrder(root);
         root = delete(root, 30);
-        System.out.println("Height of the tree after deleting 30: " + height(root));
-        System.out.println("Tree balanced after removing 30: " + isBalanced(root));
+        System.out.println();
+        levelOrder(root);
+        // System.out.println("Height of the tree after deleting 30: " + height(root));
+        // System.out.println("Tree balanced after removing 30: " + isBalanced(root));
     }
 
     public static int height(TreeNode root) {
@@ -39,6 +46,27 @@ class Main {
 
         return isBalanced(root.left) && isBalanced(root.right);
     }
+
+        public static void levelOrder(TreeNode root) {
+            Queue<TreeNode> queue = new LinkedList<>();
+            if(root==null){
+                return;
+            }
+
+            queue.add(root);
+            while (!queue.isEmpty()) {
+                TreeNode currNode = queue.poll();
+                System.out.print(currNode.val + " ");
+
+                if (currNode.left != null) {
+                    queue.add(currNode.left);
+                }
+
+                if (currNode.right != null) {
+                    queue.add(currNode.right);
+                }
+            }
+        }
 
     public static void inOrder(TreeNode root) {
         if (root == null) {
