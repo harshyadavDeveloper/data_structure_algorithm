@@ -16,10 +16,11 @@ class Main {
         }
         // System.out.println("Height of the tree before deleting 30: " + height(root));
         // System.out.println("Tree balanced before removing 30: " + isBalanced(root));
-        levelOrder(root);
+        // levelOrder(root);
         root = delete(root, 30);
         System.out.println();
-        levelOrder(root);
+        // levelOrder(root);
+        inOrder(root);
         // System.out.println("Height of the tree after deleting 30: " + height(root));
         // System.out.println("Tree balanced after removing 30: " + isBalanced(root));
     }
