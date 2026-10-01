@@ -1,8 +1,6 @@
-// Before writing any code, trace this insert sequence by hand on paper: 50, 30, 70, 20, 40, 60, 80, 10, 25. Draw the resulting 
-// tree. Where does 10 land? Where does 25 land? Once you've drawn it, code the insert loop above and print an in-order traversal 
-// — does it match what you expect from a sorted list of those 9 numbers?
-
-public class Task93_TraceInsertOrder {
+// Run search(root, 25) and search(root, 65) on your Task 93 tree. Before running — how many nodes does each search have to visit? 
+// Trace both by hand using the tree you drew, then confirm.
+class Main {
     public static void main(String[] args) {
         int[] arr = { 50, 30, 70, 20, 40, 60, 80, 10, 25 };
         TreeNode root = null;
@@ -10,6 +8,9 @@ public class Task93_TraceInsertOrder {
         for (int num : arr) {
             root = insert(root, num);
         }
+
+        boolean searchh = search(root, 10);
+        System.out.println("Is the target Present: " + searchh);
 
     }
 
@@ -24,6 +25,20 @@ public class Task93_TraceInsertOrder {
             root.right = insert(root.right, num);
         }
         return root;
+    }
+
+    public static boolean search(TreeNode root, int target) {
+        if (root == null) {
+            return false;
+        }
+
+        if (root.val == target) {
+            return true;
+        } else if (target < root.val) {
+            return search(root.left, target);
+        } else {
+            return search(root.right, target);
+        }
     }
 
 }
