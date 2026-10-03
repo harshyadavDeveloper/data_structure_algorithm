@@ -418,3 +418,292 @@
  * provide
  * required data at creation time."
  */
+
+/*
+ * Q7: What happens if two interfaces implemented by the same class both have a
+ * method
+ * with the identical signature?
+ * Answer:
+ * Depends on whether the methods are plain abstract methods or default methods.
+ *
+ * -----------------------------------------------------------
+ * CASE 1: Both are plain abstract methods (no body) - NO PROBLEM at all
+ *
+ * interface Flyable {
+ * void move();
+ * }
+ * interface Swimmable {
+ * void move();
+ * }
+ *
+ * class Duck implements Flyable, Swimmable {
+ * public void move() { // ONE implementation satisfies BOTH interfaces
+ * System.out.println("Duck moves");
+ * }
+ * }
+ * This compiles totally fine. Since neither interface provides a body, there's
+ * nothing
+ * to conflict. The class just writes ONE implementation, and it counts as
+ * fulfilling
+ * the contract for both interfaces at once.
+ *
+ * -----------------------------------------------------------
+ * CASE 2: Both are DEFAULT methods (have a body) - COMPILE ERROR (diamond
+ * problem)
+ *
+ * interface Flyable {
+ * default void move() { System.out.println("Flyable move"); }
+ * }
+ * interface Swimmable {
+ * default void move() { System.out.println("Swimmable move"); }
+ * }
+ *
+ * class Duck implements Flyable, Swimmable {
+ * // COMPILE ERROR: "class Duck inherits unrelated defaults for move() from
+ * // types Flyable and Swimmable"
+ * }
+ *
+ * Java doesn't know which default implementation to use -> forces YOU to
+ * resolve it by
+ * overriding the method explicitly in Duck:
+ *
+ * class Duck implements Flyable, Swimmable {
+ * 
+ * @Override
+ * public void move() {
+ * Flyable.super.move(); // explicitly pick Flyable's version
+ * // or Swimmable.super.move();
+ * // or write completely new logic here
+ * }
+ * }
+ *
+ * -----------------------------------------------------------
+ * Quick way to remember: only an actual BODY causes conflict. No body = no
+ * conflict,
+ * because there's nothing to "pick between", just one contract to fulfill. Body
+ * = conflict,
+ * because now there's two competing implementations and Java refuses to guess
+ * which one you want.
+ *
+ * Interview line: "If both are plain abstract methods, there's no issue - the
+ * implementing
+ * class just writes one implementation that satisfies both. But if both are
+ * default methods
+ * with actual bodies, it's a compile error - the diamond problem - and Java
+ * forces the class
+ * to override the method explicitly and resolve which version to use, using
+ * Interface.super.method()."
+ */
+
+/*
+ * Q8: Is it possible for a class to be both abstract and final? Why or why not?
+ * Answer:
+ * NO, not possible. COMPILE ERROR if you try.
+ * "illegal combination of modifiers: abstract and final"
+ *
+ * WHY - think about what each keyword actually means:
+ *
+ * ABSTRACT -> means "this class CANNOT be instantiated directly, it MUST be
+ * extended/subclassed
+ * for it to ever be useful (someone has to implement the abstract methods)"
+ *
+ * FINAL -> means
+ * "this class CANNOT be extended/subclassed by anyone, its final, no inheritance allowed"
+ *
+ * These two are literally CONTRADICTING each other:
+ * - abstract says "you MUST extend me"
+ * - final says "no one CAN extend me"
+ *
+ * abstract final class Test { // COMPILE ERROR
+ * abstract void show();
+ * }
+ *
+ * If this combo was allowed, you'd have a class that:
+ * - can't be instantiated (because abstract)
+ * - can't be extended (because final)
+ * = completely USELESS class, cant ever be used in any way, dead code
+ * essentially.
+ * That's exactly why Java's compiler just blocks this combination outright,
+ * doesn't even
+ * let you try - no practical use case for this scenario could ever exist.
+ *
+ * Interview line: "No, it's not possible, it's a compile error. Abstract means
+ * a class
+ * must be subclassed to be useful, final means a class cannot be subclassed at
+ * all -
+ * these two directly contradict each other. If it were allowed, you'd end up
+ * with a
+ * class that can neither be instantiated nor extended, making it completely
+ * unusable."
+ */
+
+/*
+ * Q9: If a subclass overrides equals() but not hashCode(), what real bug can
+ * this
+ * cause later (HashMap/HashSet specific)?
+ * Answer:
+ *
+ * The RULE in Java: "if two objects are equal (equals() returns true), they
+ * MUST have
+ * the SAME hashCode()." This is called the equals-hashCode contract.
+ *
+ * If you override equals() but DON'T override hashCode(), you break this
+ * contract.
+ * hashCode() still uses the default Object implementation (based on memory
+ * address),
+ * so two "equal" objects can end up having DIFFERENT hash codes.
+ *
+ * -----------------------------------------------------------
+ * WHY this breaks HashMap/HashSet specifically:
+ *
+ * HashMap/HashSet work using hashCode() FIRST to decide which "bucket" to
+ * put/look for
+ * an object in, THEN uses equals() only to compare within that same bucket.
+ *
+ * So if two objects are equal() but have different hashCode() -> they get
+ * placed in
+ * DIFFERENT buckets entirely. HashSet/HashMap won't even check equals() between
+ * them,
+ * because it never even looks in the other bucket - it only searches the bucket
+ * matching
+ * the hashCode you gave it.
+ *
+ * class Person {
+ * String name;
+ * Person(String name) { this.name = name; }
+ *
+ * @Override
+ * public boolean equals(Object o) {
+ * if (!(o instanceof Person)) return false;
+ * return name.equals(((Person)o).name);
+ * }
+ * // hashCode() NOT overridden - still default Object version
+ * }
+ *
+ * Set<Person> set = new HashSet<>();
+ * set.add(new Person("John"));
+ * set.add(new Person("John")); // logically a DUPLICATE (equals() says true)
+ *
+ * System.out.println(set.size()); // prints 2, NOT 1!!
+ * // Even though both Person("John") are .equals() to each other,
+ * // HashSet still adds both because their hashCode() are different (different
+ * objects,
+ * // default hashCode based on memory address), so it put them in different
+ * buckets
+ * // and never even compared them with equals().
+ *
+ * ALSO breaks lookups:
+ * set.contains(new Person("John")); // might return FALSE even though a "John"
+ * exists in set
+ * // because the NEW Person("John") you're searching with has a different
+ * hashCode
+ * // than the one already stored, so HashSet looks in wrong bucket, never finds
+ * match
+ *
+ * -----------------------------------------------------------
+ * THE FIX: Always override BOTH together, never just one.
+ *
+ * @Override
+ * public int hashCode() {
+ * return Objects.hash(name); // same fields used in equals() should be used in
+ * hashCode()
+ * }
+ *
+ * Interview line: "Breaking the equals-hashCode contract causes HashMap/HashSet
+ * to behave
+ * incorrectly - since these collections use hashCode() to find the bucket first
+ * and only
+ * use equals() within that bucket, two logically equal objects with different
+ * hash codes
+ * end up in different buckets. This causes duplicate entries in a Set, or
+ * failed lookups
+ * with contains()/get(), even though equals() would say they're the same. Rule
+ * of thumb:
+ * always override equals() and hashCode() together, never just one."
+ */
+
+/*
+ * Q10: Given Shape s = new Circle(5); - can you call a method that exists on
+ * Circle
+ * but not on Shape, directly on 's'? Why or why not?
+ * Answer:
+ * NO, you cannot call it directly. COMPILE ERROR if you try.
+ *
+ * class Shape {
+ * void draw() { System.out.println("Drawing shape"); }
+ * }
+ *
+ * class Circle extends Shape {
+ * double radius;
+ * Circle(double radius) { this.radius = radius; }
+ *
+ * void draw() { System.out.println("Drawing circle"); } // overridden
+ * double getArea() { return 3.14 * radius * radius; } // Circle-ONLY method,
+ * not in Shape
+ * }
+ *
+ * Shape s = new Circle(5);
+ * s.draw(); // WORKS fine - "Drawing circle" (runtime polymorphism, from Q2/Q10
+ * earlier)
+ * s.getArea(); // COMPILE ERROR: "cannot find symbol - method getArea()"
+ *
+ * -----------------------------------------------------------
+ * WHY this happens - the key concept here:
+ *
+ * The COMPILER only looks at the REFERENCE TYPE (declared type = Shape) to
+ * decide
+ * WHAT METHODS ARE ALLOWED TO BE CALLED AT ALL. It checks this at COMPILE time,
+ * way before it even cares about which actual object is sitting there at
+ * runtime.
+ *
+ * Since 's' is declared as type Shape, compiler only "knows about" whatever
+ * methods
+ * exist in the Shape class. It doesn't look ahead into Circle's extra methods,
+ * because
+ * for all the compiler knows, 's' could be pointing to ANY subclass of Shape
+ * (Circle,
+ * Square, Triangle...) - not all of them necessarily have getArea().
+ *
+ * This is literally the FLIP SIDE of what we saw in Q2/Q10:
+ * - WHICH implementation runs (overriding) -> decided at RUNTIME, based on
+ * actual object
+ * - WHAT methods you're even ALLOWED to call -> decided at COMPILE time, based
+ * on reference type
+ *
+ * So polymorphism lets runtime pick the right OVERRIDDEN version of a method,
+ * but it does NOT let you access methods that don't exist on the reference type
+ * at all.
+ * Those are two totally separate things - polymorphism is about
+ * behavior/dispatch,
+ * not about expanding what's visible/accessible.
+ *
+ * -----------------------------------------------------------
+ * HOW TO actually call getArea() - you need DOWNCASTING:
+ *
+ * Shape s = new Circle(5);
+ * Circle c = (Circle) s; // explicitly downcast back to Circle
+ * c.getArea(); // now this works
+ *
+ * // or inline:
+ * ((Circle) s).getArea();
+ *
+ * // SAFER way - check type first to avoid ClassCastException:
+ * if (s instanceof Circle) {
+ * Circle c = (Circle) s;
+ * c.getArea();
+ * }
+ *
+ * Interview line: "No, you can't call it directly - it's a compile error. The
+ * compiler
+ * only allows calling methods that exist on the REFERENCE TYPE (Shape),
+ * regardless of what
+ * actual object it points to, because it checks this at compile time without
+ * knowing what
+ * subclass might actually be assigned. This is the flip side of polymorphism -
+ * runtime
+ * decides WHICH version of an existing method runs, but compile-time reference
+ * type decides
+ * WHAT methods are even callable in the first place. To access Circle-specific
+ * methods,
+ * you need to explicitly downcast back to Circle."
+ */
