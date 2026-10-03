@@ -194,7 +194,6 @@
  * not the child's."
  */
 
-
 /*
  * Q4: Can you override a static method? Difference between "hiding" and
  * "overriding"?
@@ -266,4 +265,156 @@
  * reference type. That's why calling a hidden static method through a parent
  * reference
  * always calls the parent's version, even if the actual object is a child."
+ */
+
+/*
+ * Q5: If parent class has no no-arg constructor, and child doesn't call
+ * super(...)
+ * explicitly - what happens at compile time?
+ * Answer:
+ * COMPILE ERROR. The code won't compile at all.
+ *
+ * WHY: In Java, if you don't explicitly write super(...) as the first line of a
+ * child constructor, Java AUTOMATICALLY inserts an implicit super() call
+ * (no-arg version)
+ * for you behind the scenes. But this only works if the parent class actually
+ * HAS a
+ * no-arg constructor available.
+ *
+ * If parent only has a PARAMETERIZED constructor (and no no-arg one), Java
+ * still tries
+ * to insert that implicit super() -> but there's no matching no-arg constructor
+ * in parent
+ * to call -> compiler throws an error.
+ *
+ * class Animal {
+ * Animal(String name) { // only parameterized constructor exists
+ * System.out.println("Animal: " + name);
+ * }
+ * // NO no-arg constructor here
+ * }
+ *
+ * class Dog extends Animal {
+ * Dog() {
+ * // Java tries to insert super() here automatically
+ * // but Animal has no no-arg constructor -> ERROR
+ * System.out.println("Dog created");
+ * }
+ * }
+ * // COMPILE ERROR: "implicit super constructor Animal() is undefined.
+ * // Must explicitly invoke another constructor"
+ *
+ * -----------------------------------------------------------
+ * HOW TO FIX IT - 2 ways:
+ *
+ * Fix 1: Explicitly call the parameterized super constructor yourself
+ * class Dog extends Animal {
+ * Dog() {
+ * super("Default Name"); // explicitly call parent's parameterized constructor
+ * System.out.println("Dog created");
+ * }
+ * }
+ *
+ * Fix 2: Add a no-arg constructor to the parent class itself
+ * class Animal {
+ * Animal() { System.out.println("Animal default"); } // add this
+ * Animal(String name) { System.out.println("Animal: " + name); }
+ * }
+ *
+ * -----------------------------------------------------------
+ * KEY POINT to remember: Java ALWAYS needs SOME constructor call to happen
+ * first in every
+ * constructor chain (either explicit super()/this(), or implicit default
+ * super()).
+ * It never just skips constructor calling - that's why if the implicit option
+ * isn't
+ * available, it forces you to be explicit instead, otherwise compile fails.
+ *
+ * Interview line: "It's a compile error. Java automatically inserts an implicit
+ * super()
+ * call in the child constructor if you don't write one yourself, but that only
+ * works if
+ * the parent has a no-arg constructor. If parent only has a parameterized
+ * constructor,
+ * that implicit call fails to find a match, so compilation fails unless you
+ * explicitly
+ * call super(args) yourself or add a no-arg constructor to the parent."
+ */
+
+/*
+ * Q6: Can an abstract class have a constructor, if it can never be instantiated
+ * directly?
+ * If yes, what's the point?
+ * Answer:
+ * YES, abstract classes CAN have constructors. Totally legal.
+ *
+ * You're right that you can never do 'new AbstractClass()' directly. But the
+ * constructor
+ * still serves a purpose - it runs when a SUBCLASS object is created, because
+ * every
+ * subclass constructor implicitly (or explicitly) calls super(), which triggers
+ * the
+ * abstract class's constructor.
+ *
+ * abstract class Animal {
+ * String name;
+ *
+ * Animal(String name) { // constructor in abstract class
+ * this.name = name;
+ * System.out.println("Animal constructor called, name set to: " + name);
+ * }
+ *
+ * abstract void sound();
+ * }
+ *
+ * class Dog extends Animal {
+ * Dog(String name) {
+ * super(name); // this CALLS Animal's constructor
+ * System.out.println("Dog constructor called");
+ * }
+ * void sound() { System.out.println("Bark"); }
+ * }
+ *
+ * Dog d = new Dog("Tommy");
+ * // Output:
+ * // Animal constructor called, name set to: Tommy
+ * // Dog constructor called
+ *
+ * -----------------------------------------------------------
+ * WHAT'S THE POINT (why it's useful):
+ *
+ * 1. INITIALIZE COMMON FIELDS - abstract class might have shared fields (like
+ * 'name' above)
+ * that EVERY subclass needs set up properly. Constructor handles that common
+ * setup logic
+ * once, instead of every subclass repeating the same init code.
+ *
+ * 2. ENFORCE RULES AT CREATION - you can force every subclass to provide
+ * certain data
+ * right when object is created. Like if Animal constructor requires a name
+ * param,
+ * every subclass MUST pass a name through super(name), no subclass can skip
+ * this.
+ *
+ * 3. VALIDATION logic that should run for ALL subclasses, not duplicated in
+ * each one.
+ *
+ * Simple way to think about it: you can't create an Animal object directly, but
+ * you
+ * CAN'T create a Dog without "passing through" Animal's constructor first
+ * (super() always
+ * runs). So the constructor isn't there for creating Animal objects, it's there
+ * to help
+ * SET UP whatever part of the Dog (or any subclass) object that belongs to
+ * Animal.
+ *
+ * Interview line: "Yes, abstract classes can have constructors, even though you
+ * can't
+ * instantiate them directly. The constructor runs whenever a subclass object is
+ * created,
+ * since subclass constructors call super() which triggers it. It's useful for
+ * initializing
+ * common fields shared across all subclasses, and enforcing that subclasses
+ * provide
+ * required data at creation time."
  */
