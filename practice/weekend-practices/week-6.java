@@ -9,7 +9,9 @@ class Main {
             root = insert(root, num);
         }
 
-        System.out.println("this tree has total leaves: " + countLeaves(root));
+        // System.out.println("this tree has total leaves: " + countLeaves(root));
+        TreeNode target = returnParentNode(root, 10);
+        System.out.println("Parent of target is : " + target.val);
 
     }
 
@@ -38,6 +40,30 @@ class Main {
         }
 
         return countLeaves(root.left) + countLeaves(root.right);
+    }
+
+    // 2. Given a BST and a target value, write a function that returns the node's
+    // parent if the target exists, or null if it doesn't (don't just return whether
+    // it exists — return the parent node).
+    public static TreeNode returnParentNode(TreeNode node, int target) {
+        if (node == null) {
+            return null;
+        }
+
+        if (target < node.val) {
+            if (node.left != null && node.left.val == target) {
+                return node;
+            }
+            return returnParentNode(node.left, target);
+        }
+        if (target > node.val) {
+            if (node.right != null && node.right.val == target) {
+                return node;
+            }
+            return returnParentNode(node.right, target);
+        }
+
+        return null;
     }
 }
 
