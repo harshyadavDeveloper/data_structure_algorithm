@@ -10,8 +10,11 @@ class Main {
         }
 
         // System.out.println("this tree has total leaves: " + countLeaves(root));
-        TreeNode target = returnParentNode(root, 10);
-        System.out.println("Parent of target is : " + target.val);
+        // TreeNode target = returnParentNode(root, 10);
+        // System.out.println("Parent of target is : " + target.val);
+        // System.out.println("is the current tree balanced is? : " + isValidBST(root,
+        // Long.MIN_VALUE, Long.MAX_VALUE));
+        System.out.println("The second largest value in the tree is " + findSecondMax(root, null));
 
     }
 
@@ -64,6 +67,56 @@ class Main {
         }
 
         return null;
+    }
+
+    // 3. Write a function to check if a given binary tree is a valid BST. (Careful
+    // — checking only node.left.val < node.val < node.right.val at each node is not
+    // sufficient. Think about why.)
+    public static boolean isValidBST(TreeNode root, long min, long max) {
+        if (root == null) {
+            return true;
+        }
+
+        if (root.val <= min || root.val >= max) {
+            return false;
+        }
+
+        return isValidBST(root.left, min, root.val) && isValidBST(root.right, root.val, max);
+    }
+
+    // 4. Given a BST, find the second largest value in it, without using any
+    // traversal that stores all values in an array/list first.
+
+    // soluttion: Largest node ka left subtree hai → us left subtree ka largest node
+    // = second largest.
+    // Largest node ka left subtree nahi hai → largest ka parent = second largest.
+    public static int findSecondMax(TreeNode root, TreeNode parent) {
+        if (root == null) {
+            return -1;
+        }
+
+        if (root.right == null) {
+            if (root.left != null) {
+                return findMax(root.left);
+            }
+
+            return parent.val;
+        }
+
+        return findSecondMax(root.right, root);
+
+    }
+
+    public static int findMax(TreeNode node) {
+        if (node == null) {
+            return -1;
+        }
+
+        if (node.right == null) {
+            return node.val;
+        }
+
+        return findMax(node.right);
     }
 }
 
