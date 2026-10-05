@@ -4,9 +4,13 @@ class Main {
         int[] arr = { 40, 20, 60, 10, 30, 50, 70 };
 
         TreeNode root = null;
+        TreeNode root1 = null;
+        TreeNode root2 = null;
 
         for (int num : arr) {
             root = insert(root, num);
+            root1 = insert(root1, num);
+            root2 = insert(root2, num);
         }
 
         // System.out.println("this tree has total leaves: " + countLeaves(root));
@@ -14,7 +18,9 @@ class Main {
         // System.out.println("Parent of target is : " + target.val);
         // System.out.println("is the current tree balanced is? : " + isValidBST(root,
         // Long.MIN_VALUE, Long.MAX_VALUE));
-        System.out.println("The second largest value in the tree is " + findSecondMax(root, null));
+        // System.out.println("The second largest value in the tree is " +
+        // findSecondMax(root, null));
+        System.out.println("are both the tree identical:  " + isSame(root1, root2));
 
     }
 
@@ -117,6 +123,52 @@ class Main {
         }
 
         return findMax(node.right);
+    }
+
+    // 5. Given two binary trees, write a function that checks if they are identical
+    // — same structure and same values at every position.
+    public static boolean isSame(TreeNode root1, TreeNode root2) {
+        if (root1 == null && root2 == null) {
+            return true;
+        }
+
+        if ((root1 == null && root2 != null) || (root1 != null && root2 == null)) {
+            return false;
+        }
+
+        if (root1.val == root2.val) {
+            return isSame(root1.left, root2.left) && isSame(root1.right, root2.right);
+        }
+
+        return false;
+    }
+
+    // 6. Given a binary tree, write a function to find its diameter — the length of
+    // the longest path between any two nodes (the path may or may not pass through
+    // the root).
+    public static int findDiameter(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+
+        int leftHeight = calculateHeight(root.left);
+        int rightHeight = calculateHeight(root.right);
+
+        int currentDiameter = leftHeight + rightHeight + 2;
+
+        int leftDiameter = findDiameter(root.left);
+        int rightDiameter = findDiameter(root.right);
+        return Math.max(currentDiameter, Math.max(leftDiameter, rightDiameter));
+
+    }
+
+    public static int calculateHeight(TreeNode node) {
+        if (node == null) {
+            return -1;
+        }
+
+        return 1 + Math.max(calculateHeight(node.left), calculateHeight(node.right));
+
     }
 }
 
