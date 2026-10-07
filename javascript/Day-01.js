@@ -190,13 +190,13 @@ var foo = function () {
 // Q10.
 //
 // Predict the output:
-//
-// console.log(foo);
-//
-// var foo = () => {
-//     console.log("Hello");
-// };
-//
+
+console.log(foo);
+
+var foo = () => {
+  console.log("Hello");
+};
+
 // Explain why an arrow function behaves this way here.
 // Don't simply say "because arrow functions are variables."
 // here the output will be undefined. when the engine scans thru our project it see var foo and considers it as a variable and immedieately assigns it as undefiend at point it has no idea that this varibale later will be assgined to a function.
@@ -371,7 +371,6 @@ the value 10 to `foo`.
 Therefore, the second `console.log(foo)` prints 10.
 */
 
-
 // Q19.
 
 // Predict the EXACT output:
@@ -379,15 +378,15 @@ Therefore, the second `console.log(foo)` prints 10.
 var a = 1;
 
 function first() {
-    var a = 2;
+  var a = 2;
 
-    function second() {
-        var a = 3;
-        console.log(a);
-    }
-
-    second();
+  function second() {
+    var a = 3;
     console.log(a);
+  }
+
+  second();
+  console.log(a);
 }
 
 first();
@@ -449,7 +448,6 @@ Call Stack while `second()` is executing:
 │ a = 1               │
 */
 
-
 // Q20 — INTERVIEW CHALLENGE
 
 // Without running the code first, predict the output:
@@ -459,7 +457,7 @@ console.log(a);
 var a = 10;
 
 function a() {
-    console.log("A");
+  console.log("A");
 }
 
 a();
@@ -473,7 +471,6 @@ a();
 // This question is intentionally designed to test whether
 // you actually understand today's concept rather than just
 // remembering the definition of hoisting.
-
 
 // output:
 // function
