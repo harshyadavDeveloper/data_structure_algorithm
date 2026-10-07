@@ -170,6 +170,75 @@ class Main {
         return 1 + Math.max(calculateHeight(node.left), calculateHeight(node.right));
 
     }
+
+    // 8. Given a binary tree, print its boundary — root, then all left-edge nodes
+    // top to bottom, then all leaf nodes left to right, then all right-edge nodes
+    // bottom to top.
+    public static void printBoundary(TreeNode root) {
+
+        if (root == null) {
+            return;
+        }
+
+        System.out.print(root.val + " ");
+
+        printLeftBoundary(root.left);
+
+        printLeaves(root.left);
+        printLeaves(root.right);
+
+        printRightBoundary(root.right);
+    }
+
+    public static void printLeftBoundary(TreeNode node) {
+
+        if (node == null) {
+            return;
+        }
+        if (node.left == null && node.right == null) {
+            return;
+        }
+
+        System.out.print(node.val + " ");
+        if (node.left != null) {
+            printLeftBoundary(node.left);
+        } else {
+            printLeftBoundary(node.right);
+        }
+    }
+
+    public static void printLeaves(TreeNode node) {
+
+        if (node == null) {
+            return;
+        }
+
+        if (node.left == null && node.right == null) {
+            System.out.print(node.val + " ");
+            return;
+        }
+
+        printLeaves(node.left);
+        printLeaves(node.right);
+    }
+
+    public static void printRightBoundary(TreeNode node) {
+
+        if (node == null) {
+            return;
+        }
+
+        if (node.left == null && node.right == null) {
+            return;
+        }
+        if (node.right != null) {
+            printRightBoundary(node.right);
+        } else {
+            printRightBoundary(node.left);
+        }
+
+        System.out.print(node.val + " ");
+    }
 }
 
 class TreeNode {
